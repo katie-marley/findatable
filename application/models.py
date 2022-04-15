@@ -7,6 +7,7 @@ class User(db.Model):
     FirstName = db.Column(db.String(30), nullable=False)
     LastName = db.Column(db.String(30), nullable=False)
     PrefName = db.Column(db.String(30), nullable=True)
+    Email = db.Column(db.String(100), nullable=False)
     Password = db.Column(db.String(30), nullable=False)
     Phone = db.Column(db.String(30), nullable=False)
     AddressLine1 = db.Column(db.String(30), nullable=False)

@@ -2,9 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Log In Page</title>
+    <title>Log In</title>
 </head>
 <body>
+<h1>Log In</h1>
 
+<div class='form'>
+            <form method='POST' action=''>
+                <!-- provides CSRF protection, alongside secret key. Use on all POST forms -->
+                {{ form.hidden_tag() }}
+                {{ form.Email.label }} {{ form.Email }}
+                <br>
+                <br>
+                {{ form.Password.label }} {{ form.Password }}
+            {{ message }}
+            </form>
+        </div>
 </body>
 </html>
