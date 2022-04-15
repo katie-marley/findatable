@@ -1,45 +1,33 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sign Up - NOSH</title>
+    <title>Sign Up</title>
 </head>
 <body>
-<h1>Sign Up</h1>
-    <form action="{{ url_for('signup')}}", method='POST'>
-        <div>
-                {{ form.username(class_='form-control', placeholder='Username', autocomplete='off', autofocus=true)}}
-                <ul>
-                    {% for error in form.username.errors %}
-                        <li>{{ error }}</li>
-                    {% endfor %}
-                </ul>
-            </div>
-            <br>
-            <div>
-                {{ form.password(class_='form-control', placeholder='Password')}}
-                <ul>
-                    {% for error in form.password.errors %}
-                       <li>{{ error }}</li>
-                    {% endfor %}
-                </ul>
-            </div>
-            <br>
-            <div>
-                {{ form.confirm_password(class_='form-control', placeholder='Confirm Password')}}
-                <ul>
-                    {% for error in form.confirm_password.errors %}
-                        <li>{{ error }}</li>
-                    {% endfor %}
-                </ul>
-            </div>
-            <div>
-                {{ form.submit_button }}
-            </div>
-            {{ form.csrf_token }}
-    </form>
+<div class='form'>
+            <form method='POST' action=''>
+                <!-- provides CSRF protection, alongside secret key. Use on all POST forms -->
+                {{ form.hidden_tag() }}
+                {{ form.FirstName.label }} {{ form.FirstName }}
+                <br>
+                {{ form.LastName.label }} {{ form.LastName }}
+                <br>
+                {{ form.PrefName.label }} {{ form.PrefName }}
+                <br>
+                {{ form.Password.label }} {{ form.Password }}
+                <br>
+                {{ form.Phone.label }} {{ form.Phone }}
+                <br>
+                {{ form.City.label }} {{ form.City }}
+                <br>
+                {{ form.Postcode.label }} {{ form.Postcode }}
+                <br>
+                {{ form.Allergens.label }} {{ form.Allergens }}
+                <br>
+                {{ form.submit }}
+            {{ message }}
+            </form>
+        </div>
 </body>
 </html>
