@@ -13,5 +13,5 @@ class User(db.Model):
     AddressLine2 = db.Column(db.String(30), nullable=True)
     City = db.Column(db.String(30), nullable=False)
     Postcode = db.Column(db.String(30), nullable=False)
-    Allergens = db.Column(db.String(30), nullable=True)
+    Allergens = db.Column(db.String(100), nullable=False)
     # cars = db.relationship('Car', backref='person')
