@@ -8,11 +8,11 @@ from os import getenv
 app = Flask(__name__)
 
 
-app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+pymysql://root:password@localhost/CHANGETHIS"
+app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+pymysql://root:password@localhost/nosh"
 # app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+pymysql://username:password@host/database_name"
 # app.config['SQLALCHEMY_DATABASE_URI']=('mysql+pymysql://' + getenv('MYSQL_USER') + ':' + getenv('MYSQL_PASSWORD') + '@' + getenv('MYSQL_HOST') + '/' + getenv('MYSQL_DB'))
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SECRET_KEY'] = 'YOUR_SECRET_KEY'
+# app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+# app.config['SECRET_KEY'] = 'YOUR_SECRET_KEY'
 # app.config['SECRET_KEY'] = getenv('FLASK_SECRETKEY')
 
 # link our app to the persistence layer
