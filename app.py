@@ -1,6 +1,6 @@
 from application import app
-# import the ./application/routes.py file
 from application import routes
+# import the ./application/routes.py file
 
 
 if __name__ == '__main__':

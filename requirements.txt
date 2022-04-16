@@ -5,3 +5,4 @@ WTForms
 flask_wtf
 markupsafe==2.0.1
 psycopg2
+flask_mysqldb
