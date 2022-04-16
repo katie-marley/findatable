@@ -64,29 +64,16 @@ def signup():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     error = ""
-    form =LogIn()
+        form = LogIn(request.form)
+        if request.method == 'POST':
+            if form.validate_on_submit():
+                user = User.query.filter_by(Email=form.Email.data).first()
+                if user is not None and user.verify_original_pass(form.Password.data):
 
-    # Check if "username" and "password" POST requests exist (user submitted form)
-    if request.method == 'POST' and 'Email' in request.form and 'Password' in request.form:
-        Email = request.form['Email']
-        Password = request.form['Password']
-        # Check if account exists using MySQL
-        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute('SELECT * FROM user WHERE Email = %s AND Password = %s', (Email, Password,))
-        # Fetch one record and return result
-        account = cursor.fetchone()
-        # If account exists in accounts table in out database
-        if account:
-            # Create session data, we can access this data in other routes
-            session['loggedin'] = True
-            session['id'] = account['id']
-            session['username'] = account['username']
-            # Redirect to home page
-            return 'Logged in successfully!'
-        else:
-            # Account doesn't exist or username/password incorrect
-            msg = 'Incorrect username/password!'
-    # Show the login form with message (if any)
-    return render_template('login.html', form=form)
+            if user_object is None:
+                error = 'Invalid Email'
+                return render_template('login.html', title='Login', form=form)
+
+        return render_template('login.html', title='Login', form=form)
 
 
