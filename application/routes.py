@@ -80,8 +80,8 @@ def login():
                 session['Preferred Name'] = user_object.PrefName
                 session['Allergens'] = user_object.Allergens
 
-            return render_template('loggedin.html')
-        else:
-            error = 'Invalid username or password'
+                return render_template('loggedin.html')
+            else:
+                error = 'Invalid username or password'
 
     return render_template('login.html', form=form, message=error)
