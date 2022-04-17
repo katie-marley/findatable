@@ -7,7 +7,7 @@ from flask import render_template, request
 from sqlalchemy.dialects import mysql
 
 from application import app, db
-from application.forms import SignUp, LogIn, LogOut
+from application.forms import SignUp, LogIn
 from application.models import User
 
 
@@ -65,24 +65,23 @@ def signup():
 def login():
     error = ""
     form = LogIn()
-    if request.method == 'POST':
-        user_object = User.query.filter_by(Email=form.Email.data).first()
-        real_password = user_object.Password
+    session['id'] = None
+    session['Preferred Name'] = None
+    session['Allergens'] = None
 
-        if real_password == form.Password.data:
-            session['id'] = user_object.id
-            session['Preferred Name'] = user_object.PrefName
-            session['Allergens'] = user_object.Allergens
+    if request.method == 'POST':
+
+        user_object = User.query.filter_by(Email=form.Email.data).first()
+        if user_object:
+            real_password = user_object.Password
+
+            if real_password == form.Password.data:
+                session['id'] = user_object.id
+                session['Preferred Name'] = user_object.PrefName
+                session['Allergens'] = user_object.Allergens
 
             return render_template('loggedin.html')
         else:
             error = 'Invalid username or password'
 
     return render_template('login.html', form=form, message=error)
-
-
-@app.route('/logout')
-def logout():
-    error = ''
-    form = LogOut()
-    return render_template('logout.html', form=form, message=error)

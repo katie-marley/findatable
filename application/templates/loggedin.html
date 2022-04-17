@@ -1,9 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Logged In</title>
+</head>
+<body>
+    <p>you have been logged in as</p>
+    <p>ID: {{session['id']}}</p>
+    <p>Preferred Name: {{session['Preferred Name']}}</p>
+    <p>Allergens: {{session['Allergens']}}</p>
+
+    <p>Click here to log out</p>
+    <a href={{url_for('login')}}>Log Out</a>
+
+</body>
+</html>
+
 <!-- this page comes up after the person's been logged in -->
 <!-- once all the pages have been made this will link into the home page-->
-you have been logged in as
-<br>
-ID: {{session['id']}}
-<br>
-Preferred Name: {{session['Preferred Name']}}
-<br>
-Allergens: {{session['Allergens']}}

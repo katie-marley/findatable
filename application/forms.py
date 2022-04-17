@@ -26,6 +26,3 @@ class LogIn(FlaskForm):
     login_button = SubmitField('Log In')
     # add an input for cars info #
 
-
-class LogOut(FlaskForm):
-    logout_button = SubmitField('Log Out')

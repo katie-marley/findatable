@@ -6,9 +6,12 @@
 </head>
 <body>
 <h1>Log In</h1>
-
 <div class='form'>
             <form method='POST' action=''>
+                <p>you have been logged in as</p>
+                <p>ID: {{session['id']}}</p>
+                <p>Preferred Name: {{session['Preferred Name']}}</p>
+                <p>Allergens: {{session['Allergens']}}</p>
                 <!-- provides CSRF protection, alongside secret key. Use on all POST forms -->
                 {{ form.hidden_tag() }}
                 {{ form.Email.label }} {{ form.Email }}
