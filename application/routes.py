@@ -7,7 +7,7 @@ from flask import render_template, request
 from sqlalchemy.dialects import mysql
 
 from application import app, db
-from application.forms import SignUp, LogIn
+from application.forms import SignUp, LogIn, LogOut
 from application.models import User
 
 
@@ -83,6 +83,6 @@ def login():
 
 @app.route('/logout')
 def logout():
-    session.pop('loggedin', None)
-    session.pop('id', None)
-    session.pop('username', None)
+    error = ''
+    form = LogOut()
+    return render_template('logout.html', form=form, message=error)
