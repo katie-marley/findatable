@@ -11,8 +11,7 @@ from application.forms import SignUp, LogIn
 from application.models import User
 
 
-@app.route('/', methods=['GET', 'POST'])
-@app.route('/home', methods=['GET', 'POST'])
+@app.route('/signup', methods=['GET', 'POST'])
 def signup():
     error = ""
     form = SignUp()
@@ -61,6 +60,7 @@ def signup():
     return render_template('signup.html', form=form, message=error)
 
 
+@app.route('/', methods=['GET', 'POST'])
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     error = ""
@@ -83,5 +83,7 @@ def login():
                 return render_template('loggedin.html')
             else:
                 error = 'Invalid username or password'
+        else:
+            error = 'Invalid username or password'
 
     return render_template('login.html', form=form, message=error)

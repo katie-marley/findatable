@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Sign Up</title>
-</head>
-<body>
+{% extends "layout.html" %}
+{% block title %}Sign Up{% endblock %}
+{% block content %}
 <div class='form'>
             <form method='POST' action=''>
                 <!-- provides CSRF protection, alongside secret key. Use on all POST forms -->
@@ -49,5 +45,4 @@
             {{ message }}
             </form>
         </div>
-</body>
-</html>
+{% endblock %}
