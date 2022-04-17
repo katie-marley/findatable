@@ -64,16 +64,25 @@ def signup():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     error = ""
-        form = LogIn(request.form)
-        if request.method == 'POST':
-            if form.validate_on_submit():
-                user = User.query.filter_by(Email=form.Email.data).first()
-                if user is not None and user.verify_original_pass(form.Password.data):
+    form = LogIn()
+    if request.method == 'POST':
+        user_object = User.query.filter_by(Email=form.Email.data).first()
+        real_password = user_object.Password
 
-            if user_object is None:
-                error = 'Invalid Email'
-                return render_template('login.html', title='Login', form=form)
+        if real_password == form.Password.data:
+            session['id'] = user_object.id
+            session['Preferred Name'] = user_object.PrefName
+            session['Allergens'] = user_object.Allergens
 
-        return render_template('login.html', title='Login', form=form)
+            return render_template('loggedin.html')
+        else:
+            error = 'Invalid username or password'
+
+    return render_template('login.html', form=form, message=error)
 
 
+@app.route('/logout')
+def logout():
+    session.pop('loggedin', None)
+    session.pop('id', None)
+    session.pop('username', None)
