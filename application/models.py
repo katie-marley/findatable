@@ -19,9 +19,6 @@ class Price(db.Model):
     Price_ID = db.Column(db.Integer, primary_key=True)
     Price_Values = db.Column(db.String(50), nullable=False)
 
-
-
-
 # import the sqlalchemy object (db) created for our app
 
 

@@ -1,5 +1,7 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
+from wtforms import StringField, SubmitField, IntegerField
+from wtforms.validators import InputRequired, EqualTo, Length
 
 class SearchForm(FlaskForm):
     restaurant_name = StringField('Restaurant')
@@ -7,8 +9,6 @@ class SearchForm(FlaskForm):
     price_range = StringField('Price Range')
     submit = SubmitField('Search', render_kw={'class': 'btn btn-success btn-block'})
 
-from wtforms import StringField, SubmitField, IntegerField
-from wtforms.validators import InputRequired, EqualTo, Length
 
 
 class SignUp(FlaskForm):
