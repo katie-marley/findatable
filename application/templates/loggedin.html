@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block title %}Logged In{% endblock %}
+{% block content %}
+<body>
+    <p>you have been logged in as</p>
+    <p>ID: {{session['id']}}</p>
+    <p>Preferred Name: {{session['Preferred Name']}}</p>
+    <p>Allergens: {{session['Allergens']}}</p>
+
+    <p>Click here to log out</p>
+    <a href={{url_for('login')}}>Log Out</a>
+
+</body>
+{% endblock %}
+
+</html>
+
+<!-- this page comes up after the person's been logged in -->
+<!-- once all the pages have been made this will link into the home page-->

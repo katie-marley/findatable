@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+{% block title %}Sign Up{% endblock %}
+{% block content %}
+<div class='form'>
+            <form method='POST' action=''>
+                <!-- provides CSRF protection, alongside secret key. Use on all POST forms -->
+                {{ form.hidden_tag() }}
+                {{ form.FirstName.label }} {{ form.FirstName }}
+                <br>
+                <br>
+                {{ form.LastName.label }} {{ form.LastName }}
+                <br>
+                <br>
+                {{ form.PrefName.label }} {{ form.PrefName }}
+                <br>
+                <br>
+                {{ form.Email.label }} {{ form.Email }}
+                <br>
+                <br>
+                {{ form.Password.label }} {{ form.Password }}
+                <br>
+                <br>
+                {{ form.ConfirmPassword.label }} {{ form.ConfirmPassword }}
+                <br>
+                <br>
+                {{ form.Phone.label }} {{ form.Phone }}
+                <br>
+                <br>
+                {{ form.AddressLine1.label }} {{ form.AddressLine1 }}
+                <br>
+                <br>
+                {{ form.AddressLine2.label }} {{ form.AddressLine2 }}
+                <br>
+                <br>
+                {{ form.City.label }} {{ form.City }}
+                <br>
+                <br>
+                {{ form.Postcode.label }} {{ form.Postcode }}
+                <br>
+                <br>
+                {{ form.Allergens.label }} {{ form.Allergens }}
+                <br>
+                <br>
+                {{ form.submit }}
+            {{ message }}
+            </form>
+        </div>
+{% endblock %}
