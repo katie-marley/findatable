@@ -6,11 +6,12 @@
 </head>
 <body>
 <div>
-{% for restaurant in ### %}
-   <p>{{restaurant.Restaurant_ID}} {{restaurant.Restaurant_Name}}</p>
+<p>you searched for... </p>
+    {% for restaurant in rest %}
+    <ul>
+   <li>{{restaurant.Restaurant_Name}}</li>
+        </ul>
 {% endfor %}
-    <br>
-    {{ message }}
 </div>
 </body>
 </html>

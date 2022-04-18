@@ -16,6 +16,15 @@ def home_search():
 
 
 
+@app.route('/results', methods= ['GET', 'POST'])
+def hello():
+    rest = Restaurant.query.all()
+    print(rest)
+    return render_template('search_results.html', rest=rest)
+
+
+
+
 
 
 
