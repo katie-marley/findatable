@@ -12,8 +12,8 @@ from application.forms import SignUp, LogIn
 from application.models import User
 from flask import render_template, request
 from application import app, db
-from application.forms import SearchForm
-from application.models import Restaurant
+from application.forms import SearchForm, ReviewsForm, ReservationForm
+from application.models import Restaurant, Reservation, Review
 from application.models import Price
 from application.models import Cuisine
 
@@ -109,3 +109,40 @@ def login():
             error = 'Invalid username or password'
 
     return render_template('login.html', form=form, message=error)
+
+
+# Restaurant page roots
+@app.route('/restaurant_page/', methods=['GET', 'POST'])
+def make_reservation():
+    form = ReservationForm()
+    # reviews_form = ReviewsForm
+
+    if request.method == 'POST':
+        #fetch and store data
+        reservation_date = form.reservation_date.data
+        reservation_time = form.reservation_time.data
+        party_size = form.party_size.data
+
+        reservation = Reservation(reservation_date=reservation_date, reservation_time=reservation_time, party_size=party_size)
+        db.session.add(reservation)
+        db.session.commit()
+        return 'Booking Confirmed!'
+
+    return render_template('restaurant_page.html', form=form)
+
+
+@app.route('/account/', methods=['GET', 'POST'])
+def sumbit_review():
+    form = ReviewsForm()
+
+    if request.method == 'POST':
+        star_rating = form.star_rating.data
+        review_comment = form.review_comment.data
+
+        review = Review(star_rating=star_rating, review_comment=review_comment)
+        db.session.add(review)
+        db.session.commit()
+        return 'Review Submitted!'
+
+    return render_template('account.html', form=form)
+
