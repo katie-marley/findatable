@@ -18,7 +18,7 @@ from application.models import Price
 from application.models import Cuisine
 
 
-@app.route('/', methods=['GET','POST'])
+@app.route('/search', methods=['GET','POST'])
 def home_search():
     form = SearchForm()
     return render_template('home_search.html', form=form)
@@ -102,7 +102,7 @@ def login():
                 session['Preferred Name'] = user_object.PrefName
                 session['Allergens'] = user_object.Allergens
 
-                return render_template('loggedin.html')
+                return render_template('home_search.html')
             else:
                 error = 'Invalid username or password'
         else:

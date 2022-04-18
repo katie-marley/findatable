@@ -1,5 +1,6 @@
 from application import db
 
+
 class Restaurant(db.Model):
     Restaurant_ID = db.Column(db.Integer, primary_key=True)
     Restaurant_Name = db.Column(db.String(50), nullable=False)
@@ -11,9 +12,11 @@ class Restaurant(db.Model):
     Cuisine_ID = db.Column(db.Integer, db.ForeignKey('cuisine.Cuisine_ID'), nullable=False)
     Price_ID = db.Column(db.Integer, db.ForeignKey('price.Price_ID'), nullable=False)
 
+
 class Cuisine(db.Model):
     Cuisine_ID = db.Column(db.Integer, primary_key=True)
     Cuisine_Name = db.Column(db.String(50), nullable=False)
+
 
 class Price(db.Model):
     Price_ID = db.Column(db.Integer, primary_key=True)
