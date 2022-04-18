@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add a review from your visit!</title>
+</head>
+<body>
+<div class='ReviewsForm'>
+            <form method='POST' action=''>
+                <!-- provides CRSF protection, alongside secret key. Use on all POST forms -->
+                {{ form.hidden_tag() }}
+                {{ form.star_rating.label }} {{ form.star_rating }}
+                <br>
+                {{ form.review_comment.label(class="form-label") }} {{ form.review_comment(class="form-control") }}
+                <br>
+                {{ form.submit2(class="btn btn-primary") }}
+            {{ message }}
+            </form>
+        </div>
+</body>
+</html>
