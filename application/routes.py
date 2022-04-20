@@ -10,7 +10,7 @@ from flask import Flask, render_template, request, redirect, url_for, session
 # from application import app, db
 from application.forms import SignUp, LogIn
 from application.models import User
-from flask import render_template, request
+from flask import render_template, request, redirect, url_for, session
 from application import app, db
 from application.forms import SearchForm
 from application.models import Restaurant
@@ -47,7 +47,7 @@ def signup():
         FirstName = form.FirstName.data
         LastName = form.LastName.data
 
-        if len(form.PrefName.data) == 0:
+        if type(form.PrefName.data) == None:
             PrefName = FirstName
         else:
             PrefName = form.PrefName.data
@@ -82,7 +82,7 @@ def signup():
             user = User(FirstName=FirstName, LastName=LastName, PrefName=PrefName, Email=Email, Password=Password, Phone=Phone, AddressLine1=AddressLine1, AddressLine2=AddressLine2, City=City, Postcode=Postcode, Allergens=Allergens)
             db.session.add(user)
             db.session.commit()
-            return render_template('signedup.html')
+            return render_template('login.html', form=LogIn(), message=error)
 
     return render_template('signup.html', form=form, message=error)
 
@@ -112,6 +112,8 @@ def login():
                 error = 'Invalid username or password'
         else:
             error = 'Invalid username or password'
+    elif request.method:
+        return render_template('signup.html', form=SignUp(), message=error)
 
     return render_template('login.html', form=form, message=error)
 

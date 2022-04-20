@@ -7,3 +7,4 @@ markupsafe==2.0.1
 cryptography
 psycopg2
 flask_mysqldb
+Flask-Navigation

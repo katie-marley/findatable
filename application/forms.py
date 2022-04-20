@@ -36,6 +36,7 @@ class LogIn(FlaskForm):
     Email = StringField('Email', validators=[InputRequired()])
     Password = StringField('Password', validators=[InputRequired()])
     login_button = SubmitField('Log In')
+    signup_button = SubmitField('Sign Up')
     # add an input for cars info #
 
 
