@@ -2,11 +2,9 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from os import getenv
-from flask_navigation import Navigation
 
 # create a new instance of Flask and store it in app
 app = Flask(__name__)
-nav = Navigation(app)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+pymysql://root:password@localhost/nosh"
 # app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+pymysql://username:password@host/database_name"

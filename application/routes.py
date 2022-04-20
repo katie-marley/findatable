@@ -12,8 +12,6 @@ from application.forms import SignUp, LogIn
 from application.models import User
 from flask import render_template, request, redirect, url_for, session
 from application import app, db
-from application.forms import SearchForm
-from application.models import Restaurant
 # from application.models import Price
 # from application.models import Cuisine
 from application.forms import SearchForm, ReviewsForm, ReservationForm
