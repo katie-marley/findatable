@@ -41,7 +41,7 @@ def signup():
         LastName = form.LastName.data
 
         if type(form.PrefName.data) is None:
-            PrefName = form.FirstName.data
+            PrefName = FirstName
         else:
             PrefName = form.PrefName.data
 
@@ -100,7 +100,7 @@ def login():
                 session['Preferred Name'] = user_object.PrefName
                 session['Allergens'] = user_object.Allergens
 
-                return render_template('home_search.html')
+                return render_template('makeasearch.html', form=Search(), message=error)
             else:
                 error = 'Invalid username or password'
         else:
