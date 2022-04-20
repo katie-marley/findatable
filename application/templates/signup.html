@@ -10,7 +10,10 @@
 
 </head>
 <body>
-<div class='center' style="overflow-y:scroll; height:550px;">
+<div id="logo">
+	<img src="static/images/logo.png" style="max-width:15%; height:auto;">
+</div>
+<div class='center' style="overflow-y:scroll; min-width:60%; max-height:75%">
             <form method='POST' action=''>
                 <!-- provides CSRF protection, alongside secret key. Use on all POST forms -->
                 {{ form.hidden_tag() }}

@@ -9,7 +9,10 @@
 	<link rel="stylesheet" href="static/login_style.css">
 </head>
 <body>
-<div class="center">
+<div id="logo">
+	<img src="static/images/logo.png" style="max-width:15%; height:auto;">
+</div>
+<div class="center" style="min-width:60%; max-height:75%">
 	<h1><center>Log In</center></h1>
 	<div class='form'>
             <form method='POST' action="login">
@@ -23,12 +26,13 @@
                 {{ form.login_button }}
 				<br>
                 <br>
-            {{ message }}
             </form>
 
             <form method='GET' action="signup">
                 {{ form.signup_button }}
             </form>
+        <br>
+        {{ message }}
         </div>
 	</body>
 </div>
