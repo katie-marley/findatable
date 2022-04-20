@@ -149,3 +149,7 @@ def sumbit_review():
 
     return render_template('account.html', form=form)
 
+
+@app.route('/navtest')
+def navtest():
+    return render_template('navtest.html')
