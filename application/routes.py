@@ -26,8 +26,6 @@ def home_search():
     return render_template('home_search.html', form=form)
 
 
-
-
 @app.route('/results', methods= ['GET', 'POST'])
 def results():
 
@@ -45,7 +43,7 @@ def signup():
         FirstName = form.FirstName.data
         LastName = form.LastName.data
 
-        if type(form.PrefName.data) == None:
+        if type(form.PrefName.data) is None:
             PrefName = FirstName
         else:
             PrefName = form.PrefName.data
@@ -55,7 +53,7 @@ def signup():
         Phone = form.Phone.data
         AddressLine1 = form.AddressLine1.data
 
-        if len(form.AddressLine2.data) == 0:
+        if type(form.AddressLine2.data) is None:
             AddressLine2 = 'None Given'
         else:
             AddressLine2 = form.AddressLine2.data
@@ -63,7 +61,7 @@ def signup():
         City = form.City.data
         Postcode = form.Postcode.data
 
-        if len(form.Allergens.data) == 0:
+        if type(form.Allergens.data) is None:
             Allergens = 'None Given'
         else:
             Allergens = form.Allergens.data
@@ -74,7 +72,7 @@ def signup():
 
         elif form.Password.data != form.ConfirmPassword.data:
             error = "Passwords must match"
-        elif len(FirstName) == 0 or len(LastName) == 0 or len(Email) == 0 or len(Password) == 0 or len(AddressLine1) == 0 or len(AddressLine1) == 0 or len(City) == 0 or len(Postcode) == 0:
+        elif type(FirstName) is None or type(LastName) is None or type(Email) is None or type(Password) is None or type(AddressLine1) is None or type(AddressLine1) is None or type(City) is None or type(Postcode) is None:
             error = "Please fill all necessary fields"
         else:
             user = User(FirstName=FirstName, LastName=LastName, PrefName=PrefName, Email=Email, Password=Password, Phone=Phone, AddressLine1=AddressLine1, AddressLine2=AddressLine2, City=City, Postcode=Postcode, Allergens=Allergens)
@@ -110,7 +108,7 @@ def login():
                 error = 'Invalid username or password'
         else:
             error = 'Invalid username or password'
-    elif request.method:
+    elif 'signup' in request.form:
         return render_template('signup.html', form=SignUp(), message=error)
 
     return render_template('login.html', form=form, message=error)
