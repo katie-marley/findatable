@@ -44,7 +44,7 @@ def signup():
         LastName = form.LastName.data
 
         if type(form.PrefName.data) is None:
-            PrefName = FirstName
+            PrefName = form.FirstName.data
         else:
             PrefName = form.PrefName.data
 
@@ -148,8 +148,3 @@ def sumbit_review():
         return 'Review Submitted!'
 
     return render_template('account.html', form=form)
-
-
-@app.route('/navtest')
-def navtest():
-    return render_template('navtest.html')
