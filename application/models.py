@@ -3,7 +3,7 @@ from application import db
 
 class Restaurant(db.Model):
     Restaurant_ID = db.Column(db.Integer, primary_key=True)
-    Restaurant_Name = db.Column(db.String(50), nullable=False)
+    RestaurantName = db.Column(db.String(50), nullable=False)
     Address_Line_1 = db.Column(db.String(50), nullable=False)
     City = db.Column(db.String(50), nullable=False)
     Postcode = db.Column(db.String(8), nullable=False)

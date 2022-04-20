@@ -16,6 +16,7 @@ from application.forms import ReviewsForm, ReservationForm, Search
 from application.models import Restaurant, Reservation, Review
 
 
+
 # @app.route('/search', methods=['GET','POST'])
 # def home_search():
 #     form = SearchForm()
@@ -146,19 +147,18 @@ def sumbit_review():
     return render_template('account.html', form=form)
 
 
-@app.route('/makeasearch', methods=['GET', 'POST'])
+@app.route('/makeasearch', methods=['POST', 'GET'])
 def makeasearch():
     error = ""
     form = Search()
 
     if request.method == 'POST':
 
-        results_cuisine = Restaurant.query.filter_by(Cuisine=form.Cuisine.data).all()
-        results_price = Restaurant.query.filter_by(Price=form.Price.data).all()
+        resultscuisine = Restaurant.query.filter_by(Cuisine=form.Cuisine.data).all()
+        resultsprice = Restaurant.query.filter_by(Price=form.Price.data).all()
 
-        if results_cuisine or results_price:
-            return render_template('resultspage.html', results1=results_price, results2=results_cuisine)
-
+        if resultscuisine or resultsprice:
+            return render_template('resultspage.html', resultsP=resultsprice, resultsC=resultscuisine)
         else:
             error = 'None available for this option'
 

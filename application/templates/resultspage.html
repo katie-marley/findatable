@@ -1,13 +1,36 @@
-results page
-{{results1}}
-{{results2}}
-{% for result in results1 %}
-<ul>
-   <li>{{results1.Restaurant_Name}}</li>
-</ul>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Results</title>
+</head>
+<body>
+<br>
+{% for result in resultsC and resultsP%}
+    <div class="center" style="min-width:60%; max-height:75%">
+        <div>
+            {{result.RestaurantName}}
+            <br>
+            Restaurant ID: {{result.Restaurant_ID}}
+            <br>
+            Address: {{result.Address_Line_1}}
+            <br>
+            {{result.City}}
+            <br>
+            {{result.Postcode}}
+            <br>
+            Telephone: {{result.Telephone}}
+            <br>
+            Opening Hours: {{result.Opening_Hours}}
+            <br>
+        </div>
+    </div>
+    <br>
+    <br>
 {% endfor %}
-{% for result in results2 %}
-<ul>
-   <li>{{results2.Restaurant_Name}}</li>
-</ul>
-{% endfor %}
+
+</body>
+</html>
