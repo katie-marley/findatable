@@ -10,14 +10,15 @@
     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
 </head>
 <body>
-<div id="logo">
-	<img src="static/images/logo.png" style="max-width:15%; height:auto;">
-</div>
-<div class="center" style="min-width:60%; max-height:75%">
-	<h1><center>Log In</center></h1>
-	<div class='form'>
+    <div id="logo">
+	    <img src="static/images/logo.png" style="max-width:15%; height:auto;">
+    </div>
+    <div class="center" style="min-width:60%; max-height:75%">
+        <div class='form'>
             <form method='POST' action="login">
                 {{ form.hidden_tag() }}
+
+                <h1><center>Log In</center></h1>
                 {{ form.Email.label }} {{ form.Email }}
                 <br>
                 <br>
@@ -25,25 +26,23 @@
                 <br>
                 <br>
                 {{ form.login_button }}
-				<br>
+                <br>
                 <br>
             </form>
 
             <form method='GET' action="signup">
                 {{ form.signup_button }}
             </form>
-        <br>
-        {{ message }}
-        </div>
-	</body>
-</div>
-<br>
+            <br>
+            <div style="color:#8B0000">
+                {{ message }}
+            </div>
+    </div>
+</body>
 
-<footer>
 <!--<p>you have been logged in as</p>-->
 <!--<p>ID: {{session['id']}}</p>-->
 <!--<p>Preferred Name: {{session['Preferred Name']}}</p>-->
 <!--<p>Allergens: {{session['Allergens']}}</p>-->
 <!-- provides CSRF protection, alongside secret key. Use on all POST forms -->
-</footer>
 </html>
