@@ -9,18 +9,18 @@ class Restaurant(db.Model):
     Postcode = db.Column(db.String(8), nullable=False)
     Telephone = db.Column(db.String(15), nullable=False)
     Opening_Hours = db.Column(db.String(50), nullable=False)
-    Cuisine_ID = db.Column(db.Integer, db.ForeignKey('cuisine.Cuisine_ID'), nullable=False)
-    Price_ID = db.Column(db.Integer, db.ForeignKey('price.Price_ID'), nullable=False)
+    Cuisine = db.Column(db.String(50), nullable=False)
+    Price = db.Column(db.String(50), nullable=False)
 
 
-class Cuisine(db.Model):
-    Cuisine_ID = db.Column(db.Integer, primary_key=True)
-    Cuisine_Name = db.Column(db.String(50), nullable=False)
+# class Cuisine(db.Model):
+#     Cuisine_ID = db.Column(db.Integer, primary_key=True)
+#     Cuisine_Name = db.Column(db.String(50), nullable=False)
 
 
-class Price(db.Model):
-    Price_ID = db.Column(db.Integer, primary_key=True)
-    Price_Values = db.Column(db.String(50), nullable=False)
+# class Price(db.Model):
+#     Price_ID = db.Column(db.Integer, primary_key=True)
+#     Price_Values = db.Column(db.String(50), nullable=False)
 
 # import the sqlalchemy object (db) created for our app
 

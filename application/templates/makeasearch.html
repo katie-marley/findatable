@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		  content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Log In - NOSH</title>
+	<link rel="stylesheet" href="static/login_style.css">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+</head>
+<body>
+    <div id="logo">
+	    <img src="static/images/logo.png" style="max-width:15%; height:auto;">
+    </div>
+    <div class="center" style="min-width:60%; max-height:75%">
+        <div class='form'>
+            <form method='POST' action="makeasearch">
+                {{ form.hidden_tag() }}
+
+                <h1><center>Find A Table</center></h1>
+                {{ form.Cuisine.label }} {{ form.Cuisine }}
+                <br>
+                <br>
+                {{ form.Price.label }} {{ form.Price }}
+                <br>
+                <br>
+                {{ form.search_button }}
+            </form>
+            <br>
+            <div style="color:#8B0000">
+                {{ message }}
+            </div>
+    </div>
+</body>
+
+<!--<p>you have been logged in as</p>-->
+<!--<p>ID: {{session['id']}}</p>-->
+<!--<p>Preferred Name: {{session['Preferred Name']}}</p>-->
+<!--<p>Allergens: {{session['Allergens']}}</p>-->
+<!-- provides CSRF protection, alongside secret key. Use on all POST forms -->
+</html>

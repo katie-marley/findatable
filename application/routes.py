@@ -6,32 +6,28 @@ from flask import Flask, render_template, request, redirect, url_for, session
 # import re
 # from flask import render_template, request
 # from sqlalchemy.dialects import mysql
-
 # from application import app, db
-from application.forms import SignUp, LogIn
+# from application.models import Price, Cuisine
+from application.forms import SignUp, LogIn, Search
 from application.models import User
 from flask import render_template, request, redirect, url_for, session
 from application import app, db
-# from application.models import Price
-# from application.models import Cuisine
-from application.forms import SearchForm, ReviewsForm, ReservationForm
+from application.forms import ReviewsForm, ReservationForm, Search
 from application.models import Restaurant, Reservation, Review
-from application.models import Price
-from application.models import Cuisine
 
 
-@app.route('/search', methods=['GET','POST'])
-def home_search():
-    form = SearchForm()
-    return render_template('home_search.html', form=form)
-
-
-@app.route('/results', methods= ['GET', 'POST'])
-def results():
-
-    rest = Restaurant.query.all()
-    print(rest)
-    return render_template('search_results.html', rest=rest)
+# @app.route('/search', methods=['GET','POST'])
+# def home_search():
+#     form = SearchForm()
+#     return render_template('home_search.html', form=form)
+#
+#
+# @app.route('/results', methods= ['GET', 'POST'])
+# def results():
+#
+#     rest = Restaurant.query.all()
+#     print(rest)
+#     return render_template('search_results.html', rest=rest)
 
 
 @app.route('/signup', methods=['GET', 'POST'])
@@ -148,3 +144,23 @@ def sumbit_review():
         return 'Review Submitted!'
 
     return render_template('account.html', form=form)
+
+
+@app.route('/makeasearch', methods=['GET', 'POST'])
+def makeasearch():
+    error = ""
+    form = Search()
+
+    if request.method == 'POST':
+
+        results_cuisine = Restaurant.query.filter_by(Cuisine=form.Cuisine.data).all()
+        results_price = Restaurant.query.filter_by(Price=form.Price.data).all()
+
+        if results_cuisine or results_price:
+            return render_template('resultspage.html', results1=results_price, results2=results_cuisine)
+
+        else:
+            error = 'None available for this option'
+
+    return render_template('makeasearch.html', form=form, message=error)
+
