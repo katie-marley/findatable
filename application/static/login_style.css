@@ -32,7 +32,7 @@ a:visited:focus,
 a:visited:hover,
 a:active:focus,
 a:active:hover {
-  color: #E63462;
+  color: #8ADE9A;
   -webkit-transition: all 0.2s ease;
   transition: all 0.2s ease;
 }
@@ -66,7 +66,7 @@ input{
   padding: 0 0 0 10px;
   margin: 0;
   color: #8C00900;
-  border: 1px solid #8C0700;
+  border: 1px solid #EEF5DB;
   font-style: normal;
   font-size: 16px;
   -webkit-appearance: none;
@@ -80,7 +80,7 @@ input{
 input[type="submit"] {
   border: none;
   display: block;
-  background-color: #FE5F55;
+  background-color: #A3E5B0;
   color: #fff;
   font-weight: bold;
   text-transform: uppercase;
@@ -95,7 +95,7 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-  background-color: #E63462;
+  background-color: #8ADE9A;
   -webkit-transition: all 0.2s ease;
   transition: all 0.2s ease;
 }
@@ -107,7 +107,7 @@ left: 50%;
 top: 50%;
 transform: translate(-50%, -50%);
 padding: 15px;
-background-color: #FFB3AF;
+background-color: #EEF5DB;
 border-radius:8px;
 }
 

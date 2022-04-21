@@ -26,16 +26,12 @@
                 {{ form.hidden_tag() }}
 
                 <h1><center>Find A Table</center></h1>
-                {{ form.Cuisine.label }} {{ form.Cuisine }}
+                <center>{{ form.Cuisine.label }} {{ form.Cuisine }}</center>
                 <br>
-                or
-                <br>
-                {{ form.Price.label }} {{ form.Price }}
-                <br>
+                <center>{{ form.Price.label }} {{ form.Price }}</center>
                 <br>
                 {{ form.search_button }}
             </form>
-            <br>
             <div style="color:#8B0000">
                 {{ message }}
             </div>

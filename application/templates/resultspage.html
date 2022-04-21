@@ -17,7 +17,6 @@
 {% include 'navbar.html' %}
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
-<br>
 {% for result in resultsC%}
     <div class="result" style="min-width:60%; max-height:75%">
             {{result.RestaurantName}}
@@ -35,7 +34,7 @@
             Opening Hours: {{result.Opening_Hours}}
             <br>
             <br>
-                <a href="signup">
+                <a href="restaurant_page">
                     <button>Make A Booking</button>
                 </a>
         </div>
@@ -59,7 +58,8 @@
             Opening Hours: {{result.Opening_Hours}}
             <br>
             <br>
-                <a href="signup">
+                <a href="restaurant_page">
+                    <!--change this to href="restaurants"-->
                     <button>Make A Booking</button>
                 </a>
         </div>
@@ -82,10 +82,13 @@
             <br>
             Opening Hours: {{result.Opening_Hours}}
             <br>
+            <br>
+                <a href="restaurant_page">
+                    <!--change this to href="restaurants"-->
+                    <button>Make A Booking</button>
+                </a>
         </div>
     </div>
-    <br>
-    <br>
 {% endfor %}
 
 </body>

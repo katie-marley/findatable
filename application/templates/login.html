@@ -11,7 +11,7 @@
 </head>
 <body>
     <div id="logo">
-	    <img src="static/images/logo.png" style="max-width:15%; height:auto;">
+	    <img src="static/images/logo.png" style="max-width:75px;">
     </div>
     <div class="center" style="min-width:60%; max-height:75%">
         <div class='form'>
@@ -19,10 +19,10 @@
                 {{ form.hidden_tag() }}
 
                 <h1><center>Log In</center></h1>
-                {{ form.Email.label }} {{ form.Email }}
+                &nbsp{{ form.Email.label }} {{ form.Email }}
                 <br>
                 <br>
-                {{ form.Password.label }} {{ form.Password }}
+                &nbsp{{ form.Password.label }} {{ form.Password }}
                 <br>
                 <br>
                 {{ form.login_button }}

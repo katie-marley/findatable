@@ -159,14 +159,20 @@ def makeasearch():
 
         if form.Cuisine.data != 'None chosen' and form.Price.data != 'None chosen':
             resultsB = Restaurant.query.filter_by(Price=form.Price.data, Cuisine=form.Cuisine.data).all()
+            error = resultsB
             if resultsB:
                 resultsB = list(set(resultsB))
                 return render_template('resultspage.html', resultsB = resultsB)
             else:
                 error = 'None available for this option'
 
-        if form.Cuisine.data != 'None chosen' or form.Price.data != 'None chosen':
-            return render_template('resultspage.html', resultsC=resultscuisine, resultsP=resultsprice)
+        if form.Cuisine.data != 'None chosen' and form.Price.data == 'None chosen':
+            return render_template('resultspage.html', resultsC=resultscuisine)
+        else:
+            error = 'None available for this option'
+
+        if form.Cuisine.data == 'None chosen' and form.Price.data != 'None chosen':
+            return render_template('resultspage.html', resultsP=resultsprice)
         else:
             error = 'None available for this option'
 
