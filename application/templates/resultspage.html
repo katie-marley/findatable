@@ -10,7 +10,7 @@
 <body>
 <br>
 {% for result in resultsC%}
-    <div class="center" style="min-width:60%; max-height:75%">
+    <div class="result" style="min-width:60%; max-height:75%">
         <div>
             {{result.RestaurantName}}
             <br>
@@ -32,7 +32,31 @@
     <br>
     <br>
 {% for result in resultsP %}
-    <div class="center" style="min-width:60%; max-height:75%">
+    <div class="result" style="min-width:60%; max-height:75%">
+        <div>
+            {{result.RestaurantName}}
+            <br>
+            Restaurant ID: {{result.Restaurant_ID}}
+            <br>
+            Address: {{result.Address_Line_1}}
+            <br>
+            {{result.City}}
+            <br>
+            {{result.Postcode}}
+            <br>
+            Telephone: {{result.Telephone}}
+            <br>
+            Opening Hours: {{result.Opening_Hours}}
+            <br>
+        </div>
+    </div>
+    <br>
+    <br>
+{% endfor %}
+    <br>
+    <br>
+{% for result in resultsB %}
+    <div class="result" style="min-width:60%; max-height:75%">
         <div>
             {{result.RestaurantName}}
             <br>

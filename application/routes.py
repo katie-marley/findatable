@@ -157,6 +157,9 @@ def makeasearch():
         resultscuisine = Restaurant.query.filter_by(Cuisine=form.Cuisine.data).all()
         resultsprice = Restaurant.query.filter_by(Price=form.Price.data).all()
 
+        if resultscuisine and resultsprice:
+            resultsB = Restaurant.query.filter_by(Price=form.Price.data, Cuisine=form.Cuisine.data).all()
+            return render_template('resultspage.html', resultsB = resultsB)
         if resultscuisine or resultsprice:
             return render_template('resultspage.html', resultsP=resultsprice, resultsC=resultscuisine)
         else:
