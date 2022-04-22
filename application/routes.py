@@ -1,32 +1,31 @@
 #  @app.route('/search_results', methods=['GET'])
 import sqlalchemy
-from flask import Flask, render_template, request, redirect, url_for, session
+from flask import Flask, render_template, request, redirect, url_for, session, flash, sessions
 from flask_mysqldb import MySQL
 import MySQLdb.cursors
 import re
 from flask import render_template, request
 from sqlalchemy.dialects import mysql
+from sqlalchemy.sql.functions import current_user
 
 from application import app, db
 from application.forms import SignUp, LogIn
-from application.models import User
+from application.models import User, Reviews
 from flask import render_template, request
 from application import app, db
 from application.forms import SearchForm, ReviewsForm, ReservationForm
-from application.models import Restaurant, Reservation, Review
+from application.models import Restaurant, Reservation
 from application.models import Price
 from application.models import Cuisine
 
 
-@app.route('/search', methods=['GET','POST'])
+@app.route('/search', methods=['GET', 'POST'])
 def home_search():
     form = SearchForm()
     return render_template('home_search.html', form=form)
 
 
-
-
-@app.route('/results', methods= ['GET', 'POST'])
+@app.route('/results', methods=['GET', 'POST'])
 def hello():
     rest = Restaurant.query.all()
     print(rest)
@@ -71,10 +70,13 @@ def signup():
 
         elif form.Password.data != form.ConfirmPassword.data:
             error = "Passwords must match"
-        elif len(FirstName) == 0 or len(LastName) == 0 or len(Email) == 0 or len(Password) == 0 or len(AddressLine1) == 0 or len(AddressLine1) == 0 or len(City) == 0 or len(Postcode) == 0:
+        elif len(FirstName) == 0 or len(LastName) == 0 or len(Email) == 0 or len(Password) == 0 or len(
+                AddressLine1) == 0 or len(AddressLine1) == 0 or len(City) == 0 or len(Postcode) == 0:
             error = "Please fill all necessary fields"
         else:
-            user = User(FirstName=FirstName, LastName=LastName, PrefName=PrefName, Email=Email, Password=Password, Phone=Phone, AddressLine1=AddressLine1, AddressLine2=AddressLine2, City=City, Postcode=Postcode, Allergens=Allergens)
+            user = User(FirstName=FirstName, LastName=LastName, PrefName=PrefName, Email=Email, Password=Password,
+                        Phone=Phone, AddressLine1=AddressLine1, AddressLine2=AddressLine2, City=City, Postcode=Postcode,
+                        Allergens=Allergens)
             db.session.add(user)
             db.session.commit()
             return render_template('signedup.html')
@@ -115,34 +117,66 @@ def login():
 @app.route('/restaurant_page/', methods=['GET', 'POST'])
 def make_reservation():
     form = ReservationForm()
+    reviews = Reviews.query.order_by(Reviews.date_posted)
     # reviews_form = ReviewsForm
 
     if request.method == 'POST':
-        #fetch and store data
+        # fetch and store data
         reservation_date = form.reservation_date.data
         reservation_time = form.reservation_time.data
         party_size = form.party_size.data
 
-        reservation = Reservation(reservation_date=reservation_date, reservation_time=reservation_time, party_size=party_size)
+        reservation = Reservation(reservation_date=reservation_date, reservation_time=reservation_time,
+                                  party_size=party_size)
         db.session.add(reservation)
         db.session.commit()
         return 'Booking Confirmed!'
 
-    return render_template('restaurant_page.html', form=form)
+    return render_template('restaurant_page.html', form=form, reviews=reviews)
 
 
 @app.route('/account/', methods=['GET', 'POST'])
-def sumbit_review():
+def submit_review():
     form = ReviewsForm()
 
     if request.method == 'POST':
         star_rating = form.star_rating.data
         review_comment = form.review_comment.data
+        reviewer = Reviews.reviewer_id
 
-        review = Review(star_rating=star_rating, review_comment=review_comment)
+        # reviewer =
+        review = Reviews(star_rating=star_rating, reviewer_id=reviewer, review_comment=review_comment)
+
+        # add review to database
         db.session.add(review)
         db.session.commit()
-        return 'Review Submitted!'
+
+        # clear the form
+        form.star_rating.data = " "
+        form.review_comment.data = " "
+
+        # return a message
+        flash("Review Submitted!")
 
     return render_template('account.html', form=form)
 
+
+# @app.route('/reviewspage/', methods=['GET', 'POST'])
+# def display_review():
+# form = ReviewsForm()
+# reviews = Reviews.query.order_by(Reviews.date_posted)
+# return render_template('reviewspage.html', form=form, reviews=reviews)
+
+
+@app.route('/restaurantpage/')
+def display_review2():
+    form = ReservationForm()
+    reviews = Reviews.query.order_by(Reviews.date_posted)
+    return render_template('restaurant_page.html', form=form, reviews=reviews)
+
+
+@app.route('/booking/')
+def display_reservation():
+    form = ReviewsForm
+    bookings = Reservation.query.all()
+    return render_template('account.html', form=form, bookings=bookings)

@@ -3,7 +3,7 @@ flask-sqlalchemy
 pymysql
 WTForms
 flask_wtf
-markupsafe==2.0.1
+markupsafe==2.1.1
 cryptography
 psycopg2
 flask_mysqldb

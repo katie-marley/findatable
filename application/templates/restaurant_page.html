@@ -22,5 +22,18 @@
             {{ message }}
             </form>
         </div>
+
+
+ <h2>Restaurant Reviews</h2>
+  {% for review in reviews %}
+<div class="shadow p-4 mb-5 bg-body rounded">
+    {{review.star_rating}}<br/>
+   <small> {{ review.reviewer_id}} {{review.date_posted}} </small><br/><br>
+    {{review.review_comment}}<br/><br>
+</div>
+{% endfor %}
+  <br>
+
+
 </body>
 </html>

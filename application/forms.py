@@ -47,8 +47,6 @@ class ReservationForm(FlaskForm):
 
 # ACCOUNT PAGE
 class ReviewsForm(FlaskForm):
-    star_rating = RadioField('Rating',
-                             choices=[(1, '1 Star'), (2, '2 Stars'), (3, '3 Stars'), (4, '4 Stars'), (5, '5 Stars')],
-                             validators=[DataRequired()])
+    star_rating = RadioField('Rating',choices=[(1, '1 Star'), (2, '2 Stars'), (3, '3 Stars'), (4, '4 Stars'), (5, '5 Stars')],validators=[DataRequired()])
     review_comment = TextAreaField('Tell us what you think:')
     submit2 = SubmitField('Submit Review!')
