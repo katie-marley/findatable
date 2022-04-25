@@ -47,7 +47,7 @@ restaurant3 = Restaurant(RestaurantName='Pizza Hut', Address_Line_1='34 Colllege
 db.session.add(restaurant3)
 restaurant4 = Restaurant(RestaurantName='Tarboush', Address_Line_1='57 Market Street', City='Watford', Postcode='WD18 0PR', Telephone='01923248898', Opening_Hours='Monday to Sunday, 11am to 12am', Cuisine='Lebanese', Price='£25 and under')
 db.session.add(restaurant4)
-restaurant5 = Restaurant(RestaurantName='Umu Restaurant', Address_Line_1='14 to 16 Bruton Place', City='London', Postcode='W1 6LX', Telephone='02074998881', Opening_Hours='Monday to Sunday, 12pm to 2 pm, 6pm to 10pm', Cuisine='Mexican', Price='£41 and over')
+restaurant5 = Restaurant(RestaurantName='Umu Restaurant', Address_Line_1='14 to 16 Bruton Place', City='London', Postcode='W1 6LX', Telephone='02074998881', Opening_Hours='Monday to Sunday, 12pm to 2 pm, 6pm to 10pm', Cuisine='Japanese', Price='£41 and over')
 db.session.add(restaurant5)
 restaurant6 = Restaurant(RestaurantName='Ella Canta', Address_Line_1='1 Hambleton Place', City='London', Postcode='W1J 7QI', Telephone='02073188715', Opening_Hours='Monday to Sunday, 12pm to 12am', Cuisine='Mexican', Price='£41 and over')
 db.session.add(restaurant6)

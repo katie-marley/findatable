@@ -178,3 +178,4 @@ def makeasearch():
 
     return render_template('makeasearch.html', form=form, message=error)
 
+
