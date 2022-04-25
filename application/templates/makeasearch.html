@@ -6,7 +6,7 @@
 		  content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Log In - NOSH</title>
-	<link rel="stylesheet" href="static/login_style.css">
+	<link rel="stylesheet" href="static/makeasearch_style.css">
     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
@@ -20,12 +20,34 @@
 <!--    <div id="logo">-->
 <!--	    <img src="static/images/logo.png" style="max-width:15%; height:auto;">-->
 <!--    </div>-->
-    <div class="center" style="min-width:60%; max-height:75%">
+<div class="carousel" style="min-width:60%; max-height:75%">
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item">
+      <img src="{{ url_for('static', filename= 'images/restaurant_1.webp')}}" class="d-block w-100" width="300" height="500" alt="...">
+    </div>
+    <div class="carousel-item active">
+      <img src="{{ url_for('static', filename= 'images/restaurant_2.jpeg')}}" class="d-block w-100" width="300" height="500" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="{{ url_for('static', filename= 'images/restaurant_3.jpeg')}}" class="d-block w-100" width="300" height="500" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+    <div class="middle" style="min-width:60%; max-height:75%">
         <div class='form'>
             <form method='POST' action="makeasearch">
                 {{ form.hidden_tag() }}
 
-                <h1><center>Find A Table</center></h1>
+                <h1><middle>Find A Table</middle></h1>
                 <center>{{ form.Cuisine.label }} {{ form.Cuisine }}</center>
                 <br>
                 <center>{{ form.Price.label }} {{ form.Price }}</center>
@@ -34,6 +56,7 @@
             </form>
             <div style="color:#8B0000">
                 {{ message }}
+            </div>
             </div>
     </div>
 </body>

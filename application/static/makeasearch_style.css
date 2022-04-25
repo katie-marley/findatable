@@ -1,14 +1,15 @@
 body {
-  background-color: #EEF5DB;
+  background-color: #EEF5D8;
   font-size: 1.0rem;
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   color: #2b3e51;
   text-color: #2b3e51;
   background-attachment: fixed;
+  margin: 30px auto;
 }
 
 h1 {
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: "Open Sans",sans-serif;
   font-size: 2.0rem;
   font-weight: bold;
   text-align: center;
@@ -40,7 +41,7 @@ a:active:hover {
 
 #login-form-wrap {
   background-color: #EEF5D8;
-  width: 35%;
+  width: 30%;
   margin: 30px auto;
   text-align: center;
   padding: 20px 0 0 0;
@@ -102,13 +103,13 @@ input[type="submit"]:hover {
 }
 
 
-.center {
+.middle {
 position: absolute;
 left: 50%;
-top: 62%;
+top: 90%;
 transform: translate(-50%, -50%);
 padding: 15px;
-background-color: #C7EFCF;
+background-color: #EEF5DB;
 border-radius:8px;
 }
 
@@ -122,31 +123,14 @@ border-radius:8px;
 .error{
   text-color: red}
 
-.content{
-
-left: 35%;
-top: 20%;
-text-align: center;
-background-color: #EEF5DB;
-background-attachment: fixed;
-
-
+.carousel{
+width: 100%;
+height: 100%;
 }
 
-.content h2{
-    font-size: 40px;
-    margin-top: 10px;
-    text-align: centre;
-    font-family: 'Plus Jakarta Sans', sans-serif;
-}
-
-.content p{
-    margin: 20px auto;
-    font-weight: 100;
-    line-height: 25px;
-    font-size: 40px;
-    font-family: 'Plus Jakarta Sans', sans-serif;
+.carousel-item{
+margin: 30;
+opacity: 0.7;
+border: 30px;
 
 }
-
-
