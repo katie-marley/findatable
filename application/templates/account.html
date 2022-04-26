@@ -25,5 +25,20 @@
             {{ message }}
             </form>
         </div>
+{% for booking in bookings %}
+    <div class="result" style="min-width:60%; max-height:75%">
+        <div>
+            Restaurant: {{booking.RestaurantName}}
+            <br>
+            {{booking.reservation_date}}
+            <br>
+            {{booking.reservation_time}}
+            <br>
+            {{booking.party_size}}
+            <br>
+            <br>
+        </div>
+    </div>
+{% endfor %}
 </body>
 </html>

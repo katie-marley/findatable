@@ -125,7 +125,7 @@ def make_reservation(ID, name):
         reservation_time = form.reservation_time.data
         party_size = form.party_size.data
 
-        reservation = Reservation(reservation_date=reservation_date, reservation_time=reservation_time, party_size=party_size, Restaurant_ID=ID, RestaurantName=name)
+        reservation = Reservation(reservation_date=reservation_date, reservation_time=reservation_time, party_size=party_size, Restaurant_ID=ID, RestaurantName=name, User_ID=session['id'])
         db.session.add(reservation)
         db.session.commit()
         return 'Booking Confirmed!' + str(ID)
@@ -136,6 +136,8 @@ def make_reservation(ID, name):
 @app.route('/account/', methods=['GET', 'POST'])
 def sumbit_review():
     form = ReviewsForm()
+
+    bookings = Reservation.query.filter_by(User_ID={{session['id']}}).all()
 
     if request.method == 'POST':
         star_rating = form.star_rating.data

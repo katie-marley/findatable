@@ -44,6 +44,7 @@ class User(db.Model):
 class Reservation(db.Model):
     Reservation_ID = db.Column(db.Integer, primary_key=True)
     Restaurant_ID = db.Column(db.Integer, db.ForeignKey('restaurant.Restaurant_ID'), nullable=False)
+    User_ID = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     RestaurantName = db.Column(db.String(50), nullable=False)
     reservation_date = db.Column(db.Date, nullable=False)
     reservation_time = db.Column(db.Time, nullable=False)
