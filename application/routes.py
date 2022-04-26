@@ -8,7 +8,7 @@ from flask import Flask, render_template, request, redirect, url_for, session
 # from sqlalchemy.dialects import mysql
 # from application import app, db
 # from application.models import Price, Cuisine
-from application.forms import SignUp, LogIn, Search
+from application.forms import SignUp, LogIn, Search, DeleteForm
 from application.models import User
 from flask import render_template, request, redirect, url_for, session
 from application import app, db
@@ -111,28 +111,6 @@ def login():
     return render_template('login.html', form=form, message=error)
 
 
-# Restaurant page roots
-@app.route('/restaurant_page/<int:ID>/<name>', methods=['GET', 'POST'])
-def make_reservation(ID, name):
-    form = ReservationForm()
-    # reviews_form = ReviewsForm
-    # Chosen_Restaurant_ID = session['Restaurant_ID']
-    session['Chosen Restaurant Name'] = name
-
-    if request.method == 'POST':
-        #fetch and store data
-        reservation_date = form.reservation_date.data
-        reservation_time = form.reservation_time.data
-        party_size = form.party_size.data
-
-        reservation = Reservation(reservation_date=reservation_date, reservation_time=reservation_time, party_size=party_size, Restaurant_ID=ID, RestaurantName=name, User_ID=session['id'])
-        db.session.add(reservation)
-        db.session.commit()
-        return 'Booking Confirmed!' + str(ID)
-
-    return render_template('restaurant_page.html', form=form)
-
-
 @app.route('/account/', methods=['GET', 'POST'])
 def sumbit_review():
     form = ReviewsForm()
@@ -183,13 +161,57 @@ def makeasearch():
     return render_template('makeasearch.html', form=form, message=error)
 
 
-@app.route('/delete/')
-def delete_booking():
-    # error = ""
-    # reservation_to_delete = Reservation.query.get(Reservation_ID=ID)
-    # db.session.delete(reservation_to_delete)
-    # db.session.commit()
+@app.route('/delete/<int:ID>/<name>', methods=['GET', 'POST', 'DELETE'])
+def delete_booking(ID, name):
+    error = ""
+    session['Booking Name'] = name
+    if request.method == 'POST':
+        reservation_to_delete = Reservation.query.get(ID)
+        db.session.delete(reservation_to_delete)
+        db.session.commit()
+        return render_template('successfuldelete.html')
+    return render_template('delete.html', form=DeleteForm())
 
-    return render_template('delete.html')
+
+# Restaurant page roots
+@app.route('/restaurant_page/<int:ID>/<name>', methods=['GET', 'POST'])
+def make_reservation(ID, name):
+    form = ReservationForm()
+    # reviews_form = ReviewsForm
+    # Chosen_Restaurant_ID = session['Restaurant_ID']
+    session['Chosen Restaurant Name'] = name
+
+    if request.method == 'POST':
+        #fetch and store data
+        reservation_date = form.reservation_date.data
+        reservation_time = form.reservation_time.data
+        party_size = form.party_size.data
+
+        reservation = Reservation(reservation_date=reservation_date, reservation_time=reservation_time, party_size=party_size, Restaurant_ID=ID, RestaurantName=name, User_ID=session['id'])
+        db.session.add(reservation)
+        db.session.commit()
+        return 'Booking Confirmed!' + str(ID)
+
+    return render_template('restaurant_page.html', form=form)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

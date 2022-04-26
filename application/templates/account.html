@@ -27,7 +27,7 @@
             Party Size: {{booking.party_size}}
             <br>
             <br>
-            <a href="{{url_for('delete_booking')}}" type="button">
+            <a href="{{url_for('delete_booking', ID=booking.Reservation_ID, name=booking.RestaurantName)}}" type="button">
                     <button>Delete Booking</button>
             </a>
         </div>

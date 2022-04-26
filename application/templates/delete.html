@@ -5,7 +5,11 @@
     <title>Delete?</title>
 </head>
 <body>
-<h1> Are you sure you want to delete your booking? </h1>
-
+<h1> Are you sure you want to delete your booking for {{session['Booking Name']}} ? </h1>
+<div class='form'>
+    <form method='POST'>
+        {{ form.delete_button }}
+    </form>
+</div>
 </body>
 </html>

@@ -63,3 +63,7 @@ class Search(FlaskForm):
     Cuisine = SelectField('Food Types', choices=dropdown_cuisine, default=1)
     Price: SelectField = SelectField('Prices Types', choices=dropdown_price, default=1)
     search_button = SubmitField('Search')
+
+
+class DeleteForm(FlaskForm):
+    delete_button = SubmitField('Delete')
