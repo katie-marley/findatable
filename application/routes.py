@@ -137,7 +137,7 @@ def make_reservation(ID, name):
 def sumbit_review():
     form = ReviewsForm()
 
-    bookings = Reservation.query.filter_by(User_ID={{session['id']}}).all()
+    bookings = Reservation.query.filter_by(User_ID=session['id']).all()
 
     if request.method == 'POST':
         star_rating = form.star_rating.data
@@ -148,7 +148,7 @@ def sumbit_review():
         db.session.commit()
         return 'Review Submitted!'
 
-    return render_template('account.html', form=form)
+    return render_template('account.html', form=form, bookings=bookings)
 
 
 @app.route('/makeasearch', methods=['POST', 'GET'])
@@ -181,5 +181,15 @@ def makeasearch():
             error = 'None available for this option'
 
     return render_template('makeasearch.html', form=form, message=error)
+
+
+@app.route('/delete/')
+def delete_booking():
+    # error = ""
+    # reservation_to_delete = Reservation.query.get(Reservation_ID=ID)
+    # db.session.delete(reservation_to_delete)
+    # db.session.commit()
+
+    return render_template('delete.html')
 
 
