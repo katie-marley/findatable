@@ -112,10 +112,12 @@ def login():
 
 
 # Restaurant page roots
-@app.route('/restaurant_page/', methods=['GET', 'POST'])
-def make_reservation():
+@app.route('/restaurant_page/<int:ID>/<name>', methods=['GET', 'POST'])
+def make_reservation(ID, name):
     form = ReservationForm()
     # reviews_form = ReviewsForm
+    # Chosen_Restaurant_ID = session['Restaurant_ID']
+    session['Chosen Restaurant Name'] = name
 
     if request.method == 'POST':
         #fetch and store data
@@ -123,10 +125,10 @@ def make_reservation():
         reservation_time = form.reservation_time.data
         party_size = form.party_size.data
 
-        reservation = Reservation(reservation_date=reservation_date, reservation_time=reservation_time, party_size=party_size)
+        reservation = Reservation(reservation_date=reservation_date, reservation_time=reservation_time, party_size=party_size, Restaurant_ID=ID, RestaurantName=name)
         db.session.add(reservation)
         db.session.commit()
-        return 'Booking Confirmed!'
+        return 'Booking Confirmed!' + str(ID)
 
     return render_template('restaurant_page.html', form=form)
 

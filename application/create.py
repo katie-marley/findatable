@@ -3,7 +3,7 @@
 # NOTE! The database MUST exist before we try to connect to it
 
 from application import db
-from application.models import Restaurant, User
+from application.models import Restaurant, User, Reservation
 
 db.drop_all()
 db.create_all()

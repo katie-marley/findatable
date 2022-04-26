@@ -40,8 +40,11 @@ class User(db.Model):
     Allergens = db.Column(db.String(100), nullable=False)
     # cars = db.relationship('Car', backref='person')
 
+
 class Reservation(db.Model):
     Reservation_ID = db.Column(db.Integer, primary_key=True)
+    Restaurant_ID = db.Column(db.Integer, db.ForeignKey('restaurant.Restaurant_ID'), nullable=False)
+    RestaurantName = db.Column(db.String(50), nullable=False)
     reservation_date = db.Column(db.Date, nullable=False)
     reservation_time = db.Column(db.Time, nullable=False)
     party_size = db.Column(db.Integer, nullable=False)
