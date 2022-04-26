@@ -8,7 +8,7 @@ from flask import Flask, render_template, request, redirect, url_for, session
 # from sqlalchemy.dialects import mysql
 # from application import app, db
 # from application.models import Price, Cuisine
-from application.forms import SignUp, LogIn, Search, DeleteForm
+from application.forms import SignUp, LogIn, Search, DeleteForm, UpdateForm
 from application.models import User
 from flask import render_template, request, redirect, url_for, session
 from application import app, db
@@ -173,6 +173,27 @@ def delete_booking(ID, name):
     return render_template('delete.html', form=DeleteForm())
 
 
+@app.route('/update/<int:ID>/<name>', methods=['GET', 'POST', 'DELETE'])
+def update_booking(ID, name):
+    error = ""
+    form = UpdateForm()
+    session['Booking Name'] = name
+    reservation_to_update = Reservation.query.filter_by(Reservation_ID=ID).first()
+    if request.method == 'POST':
+        reservation_date = form.reservation_date.data
+        reservation_time = form.reservation_time.data
+        party_size = form.party_size.data
+
+        reservation_to_update.reservation_date = reservation_date
+        reservation_to_update.reservation_time = reservation_time
+        reservation_to_update.party_size = party_size
+
+        db.session.add(reservation_to_update)
+        db.session.commit()
+        return render_template('successfulupdate.html')
+    return render_template('update_reservation.html', form=UpdateForm())
+
+
 # Restaurant page roots
 @app.route('/restaurant_page/<int:ID>/<name>', methods=['GET', 'POST'])
 def make_reservation(ID, name):
@@ -190,7 +211,7 @@ def make_reservation(ID, name):
         reservation = Reservation(reservation_date=reservation_date, reservation_time=reservation_time, party_size=party_size, Restaurant_ID=ID, RestaurantName=name, User_ID=session['id'])
         db.session.add(reservation)
         db.session.commit()
-        return 'Booking Confirmed!' + str(ID)
+        return render_template('successfulreservation.html')
 
     return render_template('restaurant_page.html', form=form)
 

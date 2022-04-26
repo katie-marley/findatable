@@ -67,3 +67,15 @@ class Search(FlaskForm):
 
 class DeleteForm(FlaskForm):
     delete_button = SubmitField('Delete')
+
+
+class UpdateForm(FlaskForm):
+    update_button = SubmitField('Update Booking')
+
+
+# RESTAURANT PAGE
+class UpdateForm(FlaskForm):
+    reservation_date = DateField('Date:', validators=[DataRequired()])
+    reservation_time = TimeField('Time:', validators=[DataRequired()])
+    party_size = IntegerField('Party Size:', validators=[DataRequired()])
+    update = SubmitField('Update Booking!')

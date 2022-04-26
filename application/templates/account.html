@@ -30,6 +30,9 @@
             <a href="{{url_for('delete_booking', ID=booking.Reservation_ID, name=booking.RestaurantName)}}" type="button">
                     <button>Delete Booking</button>
             </a>
+            <a href="{{url_for('update_booking', ID=booking.Reservation_ID, name=booking.RestaurantName)}}" type="button">
+                    <button>Update Booking</button>
+            </a>
         </div>
     </div>
 {% endfor %}
