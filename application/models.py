@@ -3,14 +3,15 @@ from application import db
 
 class Restaurant(db.Model):
     Restaurant_ID = db.Column(db.Integer, primary_key=True)
-    RestaurantName = db.Column(db.String(50), nullable=False)
-    Address_Line_1 = db.Column(db.String(50), nullable=False)
+    RestaurantName = db.Column(db.String(100), nullable=False)
+    Address_Line_1 = db.Column(db.String(100), nullable=False)
     City = db.Column(db.String(50), nullable=False)
-    Postcode = db.Column(db.String(8), nullable=False)
-    Telephone = db.Column(db.String(15), nullable=False)
-    Opening_Hours = db.Column(db.String(50), nullable=False)
+    Postcode = db.Column(db.String(12), nullable=False)
+    Telephone = db.Column(db.String(20), nullable=False)
+    Opening_Hours = db.Column(db.String(100), nullable=False)
     Cuisine = db.Column(db.String(50), nullable=False)
     Price = db.Column(db.String(50), nullable=False)
+    Image = db.Column(db.String(100), nullable=True)
 
 
 # class Cuisine(db.Model):

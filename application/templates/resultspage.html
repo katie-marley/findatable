@@ -19,38 +19,26 @@
 <a href="{{url_for('makeasearch')}}" type="button" style="margin-left:10px">
     <button>Back</button>
 </a>
+<h4> Your Choices </h4>
 {% for result in resultsC%}
-    <div class="result" style="min-width:60%; max-height:75%">
-        {% if result.Restaurant_ID == 1 %}
-            <img src="{{url_for('static', filename='images/curry_bazar_logo.png')}}">
-        {% elif result.Restaurant_ID == 2 %}
-            <img src="{{url_for('static', filename='images/orient_logo.png')}}">
-        {% elif result.Restaurant_ID == 3 %}
-            <img src="{{url_for('static', filename='images/pizza_hut_logo.png')}}">
-        {% elif result.Restaurant_ID == 4 %}
-            <img src="{{url_for('static', filename='images/tarboush_logo.png')}}">
-        {% elif result.Restaurant_ID == 5 %}
-            <img src="{{url_for('static', filename='images/umu_logo.jpg')}}">
-        {% elif result.Restaurant_ID == 6 %}
-            <img src="{{url_for('static', filename='images/ella_canta_logo.png')}}">
-        {% elif result.Restaurant_ID == 7 %}
-            <img src="{{url_for('static', filename='images/wahaca_logo.png')}}">
-        {% endif %}
+    <div class="result" style="min-width:50%; max-height:60%">
+        <div>
+            <img src="{{ url_for('static', filename='images/rest_logos/' + result.Image) }}">
             <br>
             <br>
-            Address: {{result.Address_Line_1}}
+            {{result.Address_Line_1}}
             <br>
             {{result.City}}
             <br>
             {{result.Postcode}}
             <br>
-            Telephone: {{result.Telephone}}
+            {{result.Telephone}}
             <br>
             Opening Hours: {{result.Opening_Hours}}
             <br>
             <br>
                 <a href="{{url_for('make_reservation', ID=result.Restaurant_ID, name=result.RestaurantName)}}" type="button">
-                    <button>Make A Booking</button>
+                    <button>Make A Reservation</button>
                 </a>
         </div>
     </div>
@@ -58,37 +46,22 @@
 {% for result in resultsP %}
     <div class="result" style="min-width:60%; max-height:75%">
         <div>
-            {% if result.Restaurant_ID == 1 %}
-                <img src="{{url_for('static', filename='images/curry_bazar_logo.png')}}">
-
-            {% elif result.Restaurant_ID == 2 %}
-                <img src="{{url_for('static', filename='images/orient_logo.png')}}">
-            {% elif result.Restaurant_ID == 3 %}
-             <img src="{{url_for('static', filename='images/pizza_hut_logo.png')}}">
-            {% elif result.Restaurant_ID == 4 %}
-                <img src="{{url_for('static', filename='images/tarboush_logo.png')}}">
-            {% elif result.Restaurant_ID == 5 %}
-                <img src="{{url_for('static', filename='images/umu_logo.jpg')}}">
-            {% elif result.Restaurant_ID == 6 %}
-                <img src="{{url_for('static', filename='images/ella_canta_logo.png')}}">
-            {% elif result.Restaurant_ID == 7 %}
-                <img src="{{url_for('static', filename='images/wahaca_logo.png')}}">
-        {% endif %}
+            <img src="{{ url_for('static', filename='images/rest_logos/' + result.Image) }}">
             <br>
             <br>
-            Address: {{result.Address_Line_1}}
+            {{result.Address_Line_1}}
             <br>
             {{result.City}}
             <br>
             {{result.Postcode}}
             <br>
-            Telephone: {{result.Telephone}}
+            {{result.Telephone}}
             <br>
             Opening Hours: {{result.Opening_Hours}}
             <br>
             <br>
                 <a href="{{url_for('make_reservation', ID=result.Restaurant_ID, name=result.RestaurantName)}}" type="button">
-                    <button>Make A Booking</button>
+                    <button>Make A Reservation</button>
                 </a>
         </div>
     </div>
@@ -96,36 +69,22 @@
 {% for result in resultsB %}
     <div class="result" style="min-width:60%; max-height:75%">
         <div>
-            {% if result.Restaurant_ID == 1 %}
-                <img src="{{url_for('static', filename='images/curry_bazar_logo.png')}}">
-            {% elif result.Restaurant_ID == 2 %}
-                <img src="{{url_for('static', filename='images/orient_logo.png')}}">
-            {% elif result.Restaurant_ID == 3 %}
-                <img src="{{url_for('static', filename='images/pizza_hut_logo.png')}}">
-            {% elif result.Restaurant_ID == 4 %}
-                <img src="{{url_for('static', filename='images/tarboush_logo.png')}}">
-            {% elif result.Restaurant_ID == 5 %}
-                <img src="{{url_for('static', filename='images/umu_logo.jpg')}}">
-            {% elif result.Restaurant_ID == 6 %}
-                <img src="{{url_for('static', filename='images/ella_canta_logo.png')}}">
-            {% elif result.Restaurant_ID == 7 %}
-                <img src="{{url_for('static', filename='images/wahaca_logo.png')}}">
-        {% endif %}
+         <img src="{{ url_for('static', filename='images/rest_logos/' + result.Image) }}">
             <br>
             <br>
-            Address: {{result.Address_Line_1}}
+            {{result.Address_Line_1}}
             <br>
             {{result.City}}
             <br>
             {{result.Postcode}}
             <br>
-            Telephone: {{result.Telephone}}
+            {{result.Telephone}}
             <br>
             Opening Hours: {{result.Opening_Hours}}
             <br>
             <br>
                 <a href="{{url_for('make_reservation', ID=result.Restaurant_ID, name=result.RestaurantName)}}" type="button">
-                    <button>Make A Booking</button>
+                    <button>Make A Reservation</button>
                 </a>
         </div>
     </div>

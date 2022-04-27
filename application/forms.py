@@ -58,13 +58,12 @@ class ReviewsForm(FlaskForm):
 
 
 class Search(FlaskForm):
-    dropdown_cuisine = ['None chosen', 'Italian', 'Chinese', 'Indian', 'Mexican', 'Lebanese', 'Japanese']
-    dropdown_price = ['None chosen', '£25 and under', '£26 - £40', '£41 and over']
-    Cuisine = SelectField('Food Types', choices=dropdown_cuisine, default=1)
-    Price: SelectField = SelectField('Prices Types', choices=dropdown_price, default=1)
+    dropdown_price = ['None chosen', '£25 & under', '£26 - £40', '£41 & over']
+    Cuisine = SelectField('Cuisine choice', choices=dropdown_cuisine, default=1)
+    Price: SelectField = SelectField('Price range', choices=dropdown_price, default=1)
     search_button = SubmitField('Search')
 
-
+  
 class DeleteForm(FlaskForm):
     delete_button = SubmitField('Delete')
 
@@ -79,3 +78,4 @@ class UpdateForm(FlaskForm):
     reservation_time = TimeField('Time:', validators=[DataRequired()])
     party_size = IntegerField('Party Size:', validators=[DataRequired()])
     update = SubmitField('Update Booking!')
+
