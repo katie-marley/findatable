@@ -60,6 +60,7 @@ class Review(db.Model):
     review_comment = db.Column(db.String(200), nullable=True)
 
 
+
 class Reviews(db.Model):
     review_id = db.Column(db.Integer, primary_key=True)
     # author = db.Column(db.String(255))

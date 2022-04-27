@@ -101,6 +101,12 @@ def login():
                 session['id'] = user_object.id
                 session['Preferred Name'] = user_object.PrefName
                 session['Allergens'] = user_object.Allergens
+                session['Last Name'] = user_object.LastName
+                session['Email'] = user_object.Email
+                session['Phone'] = user_object.Phone
+                session['Address'] = user_object.AddressLine1 + ' ' +user_object.AddressLine2
+                session['City'] = user_object.City
+                session['Postcode'] = user_object.Postcode
 
                 return render_template('makeasearch.html', form=Search(), message=error)
             else:
@@ -202,6 +208,14 @@ def update_booking(ID, name):
 
         return render_template('successfulupdate.html')
     return render_template('update_reservation.html', form=UpdateForm())
+
+
+@app.route('/review/<int:ResID>/<name>/', methods=['GET', 'POST'])
+def review_booking(name, ResID):
+    error = ""
+    session['Review Restaurant Name'] = name
+    session['Review Restaurant ID'] = ResID
+    return render_template('makeareview.html', form=ReviewsForm())
 
 
 # Restaurant page roots

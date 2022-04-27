@@ -46,7 +46,7 @@
                     <div class="col-lg-6">
                       <div class="form-group">
                         <label class="form-control-label" for="input-email">Email address</label>
-                        <input type="email" id="input-email" class="form-control form-control-alternative" placeholder="jesse@example.com">
+                        <input type="email" id="input-email" class="form-control form-control-alternative" placeholder="NOSH@example.com" value="{{session['Email']}}">
                       </div>
                     </div>
                   </div>
@@ -61,7 +61,7 @@
                     <div class="col-lg-6">
                       <div class="form-group focused">
                         <label class="form-control-label" for="input-last-name">Last name</label>
-                        <input type="text" id="input-last-name" class="form-control form-control-alternative" placeholder="Last name" value="Jesse">
+                        <input type="text" id="input-last-name" class="form-control form-control-alternative" placeholder="Last name" value="{{session['Last Name']}}">
                       </div>
                     </div>
                   </div>
@@ -71,7 +71,7 @@
                     <div class="col-lg-6">
                       <div class="form-group focused">
                         <label class="form-control-label" for="input-first-name">Phone Number</label>
-                        <input type="text" id="input-phone-number" class="form-control form-control-alternative" placeholder="First name" value="">
+                        <input type="text" id="input-phone-number" class="form-control form-control-alternative" placeholder="First name" value="{{session['Phone']}}">
                       </div>
                     </div>
                     <div class="col-lg-6">
@@ -90,14 +90,14 @@
                     <div class="col-md-12">
                       <div class="form-group focused">
                         <label class="form-control-label" for="input-address">Address</label>
-                        <input id="input-address" class="form-control form-control-alternative" placeholder="Home Address" value="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09" type="text">
+                        <input id="input-address" class="form-control form-control-alternative" placeholder="Home Address" value="{{session['Address']}}" type="text">
                       </div>
                         <br>
                   <div class="row">
                     <div class="col-lg-4">
                       <div class="form-group focused">
                         <label class="form-control-label" for="input-city">City</label>
-                        <input type="text" id="input-city" class="form-control form-control-alternative" placeholder="City" value="New York">
+                        <input type="text" id="input-city" class="form-control form-control-alternative" placeholder="City" value="{{session['City']}}">
                       </div>
                     </div>
                     <div class="col-lg-4">
@@ -109,7 +109,7 @@
                     <div class="col-lg-4">
                       <div class="form-group">
                         <label class="form-control-label" for="input-country">Postal code</label>
-                        <input type="number" id="input-postal-code" class="form-control form-control-alternative" placeholder="Postal code">
+                        <input type="number" id="input-postal-code" class="form-control form-control-alternative" placeholder="{{session['Postcode']}}">
                       </div>
                     </div>
                   </div>
@@ -144,27 +144,14 @@
             <a href="{{url_for('update_booking', ID=booking.Reservation_ID, name=booking.RestaurantName)}}" type="button">
                     <button>Update Booking</button>
             </a>
+            <a href="{{url_for('review_booking', ID=booking.Reservation_ID, name=booking.RestaurantName, ResID=booking.Restaurant_ID)}}" type="button">
+                    <button>Review Your Booking</button>
+            </a>
         </div>
 
 
        </div>
 {% endfor %}
-                  </div>
-                </div>
-                <hr>
-                <div class='ReviewsForm' style="margin-left: 10px">
-            <form method='POST' action=''>
-              <h3> Why not submit a review from your last visit?</h3>
-                <!-- provides CRSF protection, alongside secret key. Use on all POST forms -->
-                {{ form.hidden_tag() }}
-                {{ form.star_rating.label }} {{ form.star_rating }}
-                <br>
-                {{ form.review_comment.label(class="form-label") }} {{ form.review_comment(class="form-control") }}
-                <br>
-                {{ form.submit2(class="btn btn-primary") }}
-            {{ message }}
-            </form>
-        </div>
 
    <footer class="footer">
     <div class="row align-items-center justify-content-xl-between">
