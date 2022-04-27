@@ -223,24 +223,3 @@ def make_reservation(ID, name):
 
     return render_template('restaurant_page.html', form=form)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

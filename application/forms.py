@@ -75,15 +75,7 @@ class UpdateForm(FlaskForm):
 
 # RESTAURANT PAGE
 class UpdateForm(FlaskForm):
-<<<<<<< Updated upstream
-    reservation_date = DateField('Date:', validators=[DataRequired()])
-    reservation_time = TimeField('Time:', validators=[DataRequired()])
-    party_size = IntegerField('Party Size:', validators=[DataRequired()])
-    update = SubmitField('Update Booking!')
-
-=======
     reservation_date = DateField('Date:')
     reservation_time = TimeField('Time:')
     party_size = IntegerField('Party Size:')
     update = SubmitField('Update Booking!')
->>>>>>> Stashed changes
