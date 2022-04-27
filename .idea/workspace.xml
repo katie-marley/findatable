@@ -5,12 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="300f55cf-ce57-422b-b10d-8f0234bc5410" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/tablefinder.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/tablefinder.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/application/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/application/routes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/static/account.css" beforeDir="false" afterPath="$PROJECT_DIR$/application/static/account.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/templates/account.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/templates/account.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/templates/restaurant_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/templates/restaurant_page.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,6 +28,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="28AHX5CRAmimTl3n2jC5uUsg7a5" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -49,7 +47,7 @@
       <recent name="$PROJECT_DIR$/application/static/images" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.create">
+  <component name="RunManager" selected="Python.requirements.txt">
     <configuration name="__init__" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="tablefinder" />
       <option name="INTERPRETER_OPTIONS" value="" />
