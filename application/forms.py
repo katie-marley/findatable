@@ -59,6 +59,7 @@ class ReviewsForm(FlaskForm):
 
 class Search(FlaskForm):
     dropdown_price = ['None chosen', '£25 & under', '£26 - £40', '£41 & over']
+    dropdown_cuisine = ['None chosen', 'Indian', 'Chinese', 'Japanese', 'Lebanese', 'Mexican', 'Italian']
     Cuisine = SelectField('Cuisine choice', choices=dropdown_cuisine, default=1)
     Price: SelectField = SelectField('Price range', choices=dropdown_price, default=1)
     search_button = SubmitField('Search')
