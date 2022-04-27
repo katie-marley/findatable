@@ -20,7 +20,7 @@
 <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
 <div class="middle" style="min-width:60%; max-height:75%">
 <h1><center> Make a booking for {{session['Chosen Restaurant Name']}} </center></h1>
-<div class='BasicForm'><center>
+<div class='BasicForm'>
     <form method='POST' action='#'>
                 <!-- provides CRSF protection, alongside secret key. Use on all POST forms -->
                 {{ form.hidden_tag() }}
@@ -35,7 +35,21 @@
                 <br>
                 {{ form.submit1(class="btn btn-primary") }}
                 {{ message }}
-            </center></form>
+             </form>
+
 </div>
+
+    <div class="shadow p-4 mb-5 bg-body rounded">
+    <h2>Restaurant Reviews</h2>
+    {% for review in reviews %}
+
+    {{review.star_rating}}<br/>
+        <small> {{ review.reviewer_id}} {{review.date_posted}} </small><br/><br>
+        {{review.review_comment}}<br/><br>
+</div>
+{% endfor %}
+
+
+
 </body>
 </html>

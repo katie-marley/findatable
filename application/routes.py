@@ -9,12 +9,11 @@ from flask import Flask, render_template, request, redirect, url_for, session
 # from application import app, db
 # from application.models import Price, Cuisine
 from application.forms import SignUp, LogIn, Search, DeleteForm, UpdateForm
-from application.models import User
+from application.models import User, Reviews
 from flask import render_template, request, redirect, url_for, session
 from application import app, db
 from application.forms import ReviewsForm, ReservationForm, Search
 from application.models import Restaurant, Reservation, Review
-
 
 
 # @app.route('/search', methods=['GET','POST'])
@@ -69,10 +68,13 @@ def signup():
 
         elif form.Password.data != form.ConfirmPassword.data:
             error = "Passwords must match"
-        elif type(FirstName) is None or type(LastName) is None or type(Email) is None or type(Password) is None or type(AddressLine1) is None or type(AddressLine1) is None or type(City) is None or type(Postcode) is None:
+        elif type(FirstName) is None or type(LastName) is None or type(Email) is None or type(Password) is None or type(
+                AddressLine1) is None or type(AddressLine1) is None or type(City) is None or type(Postcode) is None:
             error = "Please fill all necessary fields"
         else:
-            user = User(FirstName=FirstName, LastName=LastName, PrefName=PrefName, Email=Email, Password=Password, Phone=Phone, AddressLine1=AddressLine1, AddressLine2=AddressLine2, City=City, Postcode=Postcode, Allergens=Allergens)
+            user = User(FirstName=FirstName, LastName=LastName, PrefName=PrefName, Email=Email, Password=Password,
+                        Phone=Phone, AddressLine1=AddressLine1, AddressLine2=AddressLine2, City=City, Postcode=Postcode,
+                        Allergens=Allergens)
             db.session.add(user)
             db.session.commit()
             return render_template('login.html', form=LogIn(), message=error)
@@ -144,7 +146,7 @@ def makeasearch():
             error = resultsB
             if resultsB:
                 resultsB = list(set(resultsB))
-                return render_template('resultspage.html', resultsB = resultsB)
+                return render_template('resultspage.html', resultsB=resultsB)
             else:
                 error = 'None available for this option'
 
@@ -203,12 +205,13 @@ def make_reservation(ID, name):
     session['Chosen Restaurant Name'] = name
 
     if request.method == 'POST':
-        #fetch and store data
+        # fetch and store data
         reservation_date = form.reservation_date.data
         reservation_time = form.reservation_time.data
         party_size = form.party_size.data
 
-        reservation = Reservation(reservation_date=reservation_date, reservation_time=reservation_time, party_size=party_size, Restaurant_ID=ID, RestaurantName=name, User_ID=session['id'])
+        reservation = Reservation(reservation_date=reservation_date, reservation_time=reservation_time,
+                                  party_size=party_size, Restaurant_ID=ID, RestaurantName=name, User_ID=session['id'])
         db.session.add(reservation)
         db.session.commit()
         return render_template('successfulreservation.html')
@@ -216,23 +219,8 @@ def make_reservation(ID, name):
     return render_template('restaurant_page.html', form=form)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+@app.route('/restaurantpage/')
+def display_review2():
+    form = ReservationForm()
+    reviews = Reviews.query.order_by(Reviews.date_posted)
+    return render_template('restaurant_page.html', form=form, reviews=reviews)
