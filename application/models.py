@@ -11,6 +11,7 @@ class Restaurant(db.Model):
     Opening_Hours = db.Column(db.String(50), nullable=False)
     Cuisine = db.Column(db.String(50), nullable=False)
     Price = db.Column(db.String(50), nullable=False)
+    Image = db.Column(db.String(50), nullable=True)
 
 
 # class Cuisine(db.Model):
