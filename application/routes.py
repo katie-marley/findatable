@@ -180,16 +180,24 @@ def update_booking(ID, name):
     session['Booking Name'] = name
     reservation_to_update = Reservation.query.filter_by(Reservation_ID=ID).first()
     if request.method == 'POST':
-        reservation_date = form.reservation_date.data
-        reservation_time = form.reservation_time.data
-        party_size = form.party_size.data
+        if form.reservation_date.data:
+            reservation_date = form.reservation_date.data
+            reservation_to_update.reservation_date = reservation_date
+            db.session.add(reservation_to_update)
+            db.session.commit()
 
-        reservation_to_update.reservation_date = reservation_date
-        reservation_to_update.reservation_time = reservation_time
-        reservation_to_update.party_size = party_size
+        if form.reservation_time.data:
+            reservation_time = form.reservation_time.data
+            reservation_to_update.reservation_time = reservation_time
+            db.session.add(reservation_to_update)
+            db.session.commit()
 
-        db.session.add(reservation_to_update)
-        db.session.commit()
+        if form.party_size.data:
+            party_size = form.party_size.data
+            reservation_to_update.party_size = party_size
+            db.session.add(reservation_to_update)
+            db.session.commit()
+
         return render_template('successfulupdate.html')
     return render_template('update_reservation.html', form=UpdateForm())
 

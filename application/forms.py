@@ -2,7 +2,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, SelectField
 from wtforms import StringField, SubmitField, IntegerField
 from wtforms.validators import InputRequired, EqualTo, Length
-from wtforms import StringField, SubmitField, IntegerField, DateField, TimeField, TextAreaField, RadioField, SelectField
+from wtforms import StringField, SubmitField, IntegerField, DateField, TimeField, TextAreaField, RadioField, SelectField, PasswordField
 from wtforms.validators import InputRequired, EqualTo, Length, DataRequired
 
 
@@ -18,10 +18,10 @@ class SignUp(FlaskForm):
     LastName = StringField('Last Name', validators=[InputRequired(), Length(min=1, max=50)])
     PrefName = StringField('Preferred Name')
     Email = StringField('Email', validators=[InputRequired()])
-    Password = StringField('Password',
+    Password = PasswordField('Password',
                            validators=[InputRequired(), EqualTo('ConfirmPassword', message='Passwords must match'),
                                        Length(min=5, max=50)])
-    ConfirmPassword = StringField('Confirm Password')
+    ConfirmPassword = PasswordField('Confirm Password')
     Phone = IntegerField('Phone', validators=[InputRequired()])
     AddressLine1 = StringField('Address Line 1', validators=[InputRequired()])
     AddressLine2 = StringField('Address Line 2')
@@ -34,7 +34,7 @@ class SignUp(FlaskForm):
 
 class LogIn(FlaskForm):
     Email = StringField('Email', validators=[InputRequired()])
-    Password = StringField('Password', validators=[InputRequired()])
+    Password = PasswordField('Password', validators=[InputRequired()])
     login_button = SubmitField('Log In')
     signup_button = SubmitField('Sign Up')
     # add an input for cars info #
@@ -75,8 +75,15 @@ class UpdateForm(FlaskForm):
 
 # RESTAURANT PAGE
 class UpdateForm(FlaskForm):
+<<<<<<< Updated upstream
     reservation_date = DateField('Date:', validators=[DataRequired()])
     reservation_time = TimeField('Time:', validators=[DataRequired()])
     party_size = IntegerField('Party Size:', validators=[DataRequired()])
     update = SubmitField('Update Booking!')
 
+=======
+    reservation_date = DateField('Date:')
+    reservation_time = TimeField('Time:')
+    party_size = IntegerField('Party Size:')
+    update = SubmitField('Update Booking!')
+>>>>>>> Stashed changes
