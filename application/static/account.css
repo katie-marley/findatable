@@ -1,0 +1,117 @@
+.navbar-nav {
+    color: #333745;
+}
+.bg-light{
+    background-color: transparent!important;
+}
+
+.navbar-brand img {
+    height: 60px;
+}
+html, body {
+    font-family: 'Poppins', sans-serif;
+}
+
+a.nav-link{
+    text-decoration: none;
+    color: #18354e!important;
+    font-weight: 500;
+
+}
+
+a:hover {
+    color: #e63462!important;
+}
+
+.navbar-toggler{
+    background:#e63462!important;
+    border:none;
+    padding: 10px 6px;
+    outline:none;
+}
+body{
+    background-color:#18354e;
+}
+.card{
+    background: color #18354e;
+}
+a{
+    font-size:18px;
+    font-weight: bold!important;
+
+}
+
+
+.account-img {
+  height: 125px;
+  width: 125px;
+  margin-right: 20px;
+  margin-bottom: 16px;
+}
+
+body {
+  background: #fafafa;
+  color: #333333;
+  margin-top: 5rem;
+}
+
+.content-section {
+  background: #ffffff;
+  padding: 10px 20px;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  margin-bottom: 20px;
+}
+
+.article-title {
+  color: #444444;
+}
+
+a.article-title:hover {
+  color: #428bca;
+  text-decoration: none;
+}
+
+.article-content {
+  white-space: pre-line;
+}
+
+.article-img {
+  align-items: center;
+  height: 65px;
+  width: 65px;
+  margin-right: 16px;
+}
+
+.article-metadata {
+  padding-bottom: 1px;
+  margin-bottom: 4px;
+  border-bottom: 1px solid #e3e3e3
+}
+
+.article-metadata a:hover {
+  color: #333;
+  text-decoration: none;
+}
+
+.article-svg {
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+}
+
+.account-img {
+  height: 125px;
+  width: 125px;
+  margin-right: 20px;
+  margin-bottom: 16px;
+}
+
+.account-heading {
+  font-size: 2.5rem;
+}
+html,body{
+    background-color:#18354e!important;
+}
+
+

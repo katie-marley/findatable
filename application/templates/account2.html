@@ -113,23 +113,15 @@
                       </div>
                     </div>
                   </div>
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-           <h2 style="margin-left: 10px">Your Bookings</h2>
+                  <hr><br>
+                  <h2 style="margin-left: 10px">Your Bookings</h2>
                   <div>
                     {% for booking in bookings %}
     <div class="result" style="min-width:60%; max-height:75%; margin-left: 10px">
         <div>
             Restaurant: {{booking.RestaurantName}}
             <br>
-            Booking Reference: {{booking.Reservation_ID}}
+            ID: {{booking.Reservation_ID}}
             <br>
             Date: {{booking.reservation_date}}
             <br>
@@ -145,9 +137,7 @@
                     <button>Update Booking</button>
             </a>
         </div>
-
-
-       </div>
+    </div>
 {% endfor %}
                   </div>
                 </div>
@@ -165,8 +155,16 @@
             {{ message }}
             </form>
         </div>
-
-   <footer class="footer">
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="footer">
     <div class="row align-items-center justify-content-xl-between">
       <div class="col-xl-6 m-auto text-center">
         <div class="copyright"> &copy; 2022 Copyright NOSH BY Group Purple</div>
