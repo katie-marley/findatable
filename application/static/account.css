@@ -1,0 +1,45 @@
+.navbar-nav {
+    color: #333745;
+}
+.bg-light{
+    background-color: transparent!important;
+}
+
+.navbar-brand img {
+    height: 60px;
+}
+html, body {
+    font-family: 'Poppins', sans-serif;
+}
+
+a.nav-link{
+    text-decoration: none;
+    color: #18354e!important;
+    font-weight: 500;
+
+}
+
+a:hover {
+    color: #e63462!important;
+}
+
+.navbar-toggler{
+    background:#e63462!important;
+    border:none;
+    padding: 10px 6px;
+    outline:none;
+}
+body{
+    background-color:#18354e;
+}
+.card{
+    background: color #18354e;
+}
+a{
+    font-size:18px;
+    font-weight: bold!important;
+
+}
+
+
+

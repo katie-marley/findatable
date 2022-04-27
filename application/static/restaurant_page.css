@@ -1,18 +1,15 @@
 body {
-  background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url("images/restaurant_4.webp");
+  background-color: #EEF5D8;
   font-size: 1.0rem;
-  font-family: 'Roboto', sans-serif;
-  color: white;
-  text-color: white;
-  background-repeat: no-repeat;
-  height: 100%;
-  width: 100%;
-  background-size:100% 100vh;
-  background-attachment: relative;
+  font-family: 'Roboto', sans-serif !important;
+  color: #2b3e51;
+  text-color: #2b3e51;
+  background-attachment: fixed;
+  margin: 30px auto;
 }
 
 h1 {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Italiana', serif;
   font-size: 2.0rem;
   font-weight: bold;
   text-align: center;
@@ -26,7 +23,7 @@ a,
 a:link,
 a:visited,
 a:active {
-  color: #FE5F55;
+  color: #333745;
   -webkit-transition: all 0.2s ease;
   transition: all 0.2s ease;
 }
@@ -37,14 +34,14 @@ a:visited:focus,
 a:visited:hover,
 a:active:focus,
 a:active:hover {
-  color: #8ADE9A;
+  color: #e63462;
   -webkit-transition: all 0.2s ease;
   transition: all 0.2s ease;
 }
 
 #login-form-wrap {
   background-color: #EEF5D8;
-  width: 35%;
+  width: 30%;
   margin: 30px auto;
   text-align: center;
   padding: 20px 0 0 0;
@@ -63,10 +60,10 @@ input {
   outline: none;
   height: 60px;
   line-height: 60px;
-  border-radius: 25px;
+  border-radius: 24px!important;
 }
 
-input{
+input {
   width: 100%;
   padding: 0 0 0 10px;
   margin: 0;
@@ -85,11 +82,10 @@ input{
 input[type="submit"] {
   border: none;
   display: block;
-  background-color: #EEF5DB;
-  color: #8C00900;
+  background-color: black;
+  color: #fff;
   font-weight: bold;
   text-transform: uppercase;
-  font-family: 'Roboto', sans-serif!important;
   cursor: pointer;
   -webkit-transition: all 0.2s ease;
   transition: all 0.2s ease;
@@ -107,54 +103,31 @@ input[type="submit"]:hover {
 }
 
 
-.center {
-position: absolute;
-left: 50%;
-top: 62%;
-transform: translate(-50%, -50%);
-padding: 15px;
-background-color: transparent;
-opacity: 0.98;
-border-radius:8px;
+.middle {
+    position: absolute;
+    left: 50%;
+    top:60%;
+    transform: translate(-50%, -50%);
+    padding: 15px;
+    background-color: #efdfbb;
+    border-radius:8px;
+    padding-bottom: 50px;
 }
 
-#logo{
+#logo {
 	position:relative;
 	left: 10%;
 	top:5px;
 	left:5px;
 }
+.navbar-brand img {
+    height: 60px;
+}
 
 .error{
   text-color: red}
 
-.content{
 
-left: 35%;
-top: 20%;
-text-align: center;
-background-attachment: fixed;
-
-
-}
-
-.content h1{
-    font-size: 40px;
-    margin-top: 10px;
-    text-align: centre;
-    font-family: 'Italiana', serif;
-    color: white;
-}
-
-.content p{
-    color: white;
-    margin: 20px auto;
-    font-weight: 100;
-    line-height: 25px;
-    font-size: 40px;
-    font-family: 'Roboto', sans-serif;
-
-}
 
 footer{
   display: block;
@@ -167,14 +140,16 @@ footer{
   color: white;
   text-align: center;
 }
+html{
+    background: black;
+}
+container-fluid, navbar navbar-expand-lg{
+    background-color: transparent!important;
+}
 
-.bottom{
-  display: block;
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  background-color: black;
-  color: white;
-  text-align: center;
+a.nav-link.active{
+    font-size:18px;
+    font-family: 'Roboto', sans-serif !important;
+    font-weight: bold!;
+
 }

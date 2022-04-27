@@ -7,18 +7,23 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Sign Up - NOSH</title>
     <link rel="stylesheet" href="static/signup_style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Roboto:wght@300&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
 
 </head>
 <body>
-<div id="logo">
+
+<div id="logo" href="{{url_for('login')}}">
+
 	<img src="static/images/logo.png" style="max-width:75px;">
 </div>
 <div class='center' style="overflow-y:scroll; min-width:60%; max-height:75%">
             <form method='POST' action=''>
                 <!-- provides CSRF protection, alongside secret key. Use on all POST forms -->
                 {{ form.hidden_tag() }}
-                <h1><center>Sign Up</center></h1>
+                <h1><center>SIGN UP</center></h1>
                 {{ form.FirstName.label }} {{ form.FirstName }}
                 <br>
                 <br>

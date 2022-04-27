@@ -1,9 +1,11 @@
 .result {
-padding: 15px;
-margin: 10px;
-background-color: #C7EFCF;
+padding: 20px;
+margin: 15px;
+background-color: #EEF5DB;
 border-radius:8px;
-text-color: black;
+font-color: black;
+display: center!important;
+text-align: center
 }
 
 .button_book {
@@ -12,6 +14,54 @@ float: right;
 padding: 15px;
 margin: 10px;
 background-color: red;
-border-radius:8px;
+border-radius:8px!important;
 text-color: black;
+}
+
+.navbar-nav {
+    color: #333745;
+}
+
+
+.navbar-brand img {
+    height: 60px;
+}
+html, body {
+    font-family: 'Roboto', sans-serif!important;
+}
+
+a.nav-link{
+    text-decoration: none;
+    color: white!important;
+    font family:'Roboto', sans-serif!important!important;
+}
+
+a:hover {
+    color: #e63462!important;
+}
+
+button.navbar-toggler{
+    background:#e63462!important;
+    border:none;
+    padding: 10px 6px;
+    outline:none;
+    border-radius:8px!important;
+
+}
+html, div {
+    font family:'Roboto', sans-serif!important;
+
+}
+.card{
+    background: color #18354e;
+}
+
+button{
+    border-radius: 25px!important;
+    background-color: #E63462;
+    border-color: white;
+}
+
+body{
+    background-color: black!important;
 }
