@@ -21,7 +21,7 @@
 {% for result in resultsC%}
     <div class="result" style="min-width:50%; max-height:60%">
         <div>
-            <img src="{{ url_for('static', filename='images/rest_logos/' + result.Image) }}" alt="{{result.RestaurantName}}">
+            <img src="{{ url_for('static', filename='images/rest_logos/' + result.Image) }}">
             <br>
             <br>
             {{result.Address_Line_1}}
@@ -44,7 +44,7 @@
 {% for result in resultsP %}
     <div class="result" style="min-width:60%; max-height:75%">
         <div>
-            <img src="{{ url_for('static', filename='images/rest_logos/' + result.Image) }}" alt="{{result.RestaurantName}}">
+            <img src="{{ url_for('static', filename='images/rest_logos/' + result.Image) }}">
             <br>
             <br>
             {{result.Address_Line_1}}
@@ -68,7 +68,7 @@
 {% for result in resultsB %}
     <div class="result" style="min-width:60%; max-height:75%">
         <div>
-         <img src="{{ url_for('static', filename='images/rest_logos/' + result.Image) }}" alt="{{result.RestaurantName}}">
+         <img src="{{ url_for('static', filename='images/rest_logos/' + result.Image) }}">
             <br>
             <br>
             {{result.Address_Line_1}}
