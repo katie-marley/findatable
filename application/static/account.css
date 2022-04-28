@@ -1,20 +1,13 @@
-.navbar-nav {
-    color: #333745;
-}
-.bg-light{
-    background-color: transparent!important;
-}
 
 .navbar-brand img {
     height: 60px;
 }
-html, body {
-    font-family: 'Poppins', sans-serif;
-}
+
+
 
 a.nav-link{
     text-decoration: none;
-    color: #18354e!important;
+    color: #18354e;
     font-weight: 500;
 
 }
@@ -24,94 +17,101 @@ a:hover {
 }
 
 .navbar-toggler{
-    background:#e63462!important;
+    background: #e63462!important;
     border:none;
     padding: 10px 6px;
     outline:none;
 }
 body{
-    background-color:#18354e;
+    background-color:#18354e!important;
 }
 .card{
-    background: color #18354e;
+    background-color: #C7EFCF!important;
 }
 a{
     font-size:18px;
-    font-weight: bold!important;
 
+}
+card-body{
+    background-color:#C7EFCF!important;
+}
+
+html{
+    font-family: 'Roboto', sans-serif!important;
+    color: white;
 }
 
 
 .account-img {
   height: 125px;
   width: 125px;
-  margin-right: 20px;
-  margin-bottom: 16px;
+  margin-right: auto;
+  margin-bottom: auto;
+  display: block;
 }
 
-body {
-  background: #fafafa;
-  color: #333333;
-  margin-top: 5rem;
-}
+
 
 .content-section {
-  background: #ffffff;
+  background: #efdfbb;
   padding: 10px 20px;
   border: 1px solid #dddddd;
   border-radius: 3px;
   margin-bottom: 20px;
+  padding-bottom: 20px;
 }
 
-.article-title {
-  color: #444444;
+input{
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  outline: none;
+  height: 60px;
+  line-height: 60px;
+  border-radius: 25px!important;
+  font-family: 'Roboto', sans-serif!important;
 }
 
-a.article-title:hover {
-  color: #428bca;
-  text-decoration: none;
-}
-
-.article-content {
-  white-space: pre-line;
-}
-
-.article-img {
-  align-items: center;
-  height: 65px;
-  width: 65px;
-  margin-right: 16px;
-}
-
-.article-metadata {
-  padding-bottom: 1px;
-  margin-bottom: 4px;
-  border-bottom: 1px solid #e3e3e3
-}
-
-.article-metadata a:hover {
-  color: #333;
-  text-decoration: none;
-}
-
-.article-svg {
-  width: 25px;
-  height: 25px;
-  vertical-align: middle;
-}
-
-.account-img {
-  height: 125px;
-  width: 125px;
-  margin-right: 20px;
-  margin-bottom: 16px;
 }
 
 .account-heading {
   font-size: 2.5rem;
 }
 html,body{
-    background-color:#18354e!important;
+    background-color:black!important;
+
+}
+
+h4{
+    font-family: 'Italiana', serif;
+    color: black;
+}
+
+h3{
+    font-family: 'Italiana', serif;
+    color: black;
+
 }
 
 
+h2 {
+    font-family: 'Italiana', serif;
+    color: white;
+}
+
+}
+.result{
+background-color: #C7EFCF;
+}
+
+div{
+color: white;
+}
+label{
+ color: black;
+}
+button{
+    border-radius: 25px!important;
+    background-color: #E63462;
+    border-color: white;
+}

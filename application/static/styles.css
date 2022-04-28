@@ -3,13 +3,13 @@
     height: 60px;
 }
 html, body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto', sans-serif!important;
 }
 
 a.nav-link{
     text-decoration: none;
     color: white!important;
-    font-weight:900!important;
+    font-weight:;
 
 }
 
@@ -29,3 +29,15 @@ nav.navbar.navbar-expand-lg{
       z-index:10;
       max-width:100%;
       }
+
+.main-content{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+}
+
+body{
+    background-colour: black!important;
+}

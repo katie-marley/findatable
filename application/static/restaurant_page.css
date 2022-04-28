@@ -141,7 +141,7 @@ footer{
   text-align: center;
 }
 html{
-    background: black;
+    background: black!important;
 }
 container-fluid, navbar navbar-expand-lg{
     background-color: transparent!important;
